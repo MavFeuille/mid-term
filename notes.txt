@@ -4,7 +4,7 @@ Features
 Single-pg (CATAGORIES TO BE SOLD(3))
 ___
 Ex site: https://themeforest.net/category/wordpress?term=buyers#content
-
+Ex2 site: https://www.facebook.com/search/top/?q=market&opensearch=1
 Number of pages = 4
 1) Homepage- Can see pics items
 2)Filtering items page - search by price
