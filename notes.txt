@@ -1,0 +1,65 @@
+Features
+
+---
+Single-pg (CATAGORIES TO BE SOLD(3))
+___
+Ex site: https://themeforest.net/category/wordpress?term=buyers#content
+
+Number of pages = 4
+1) Homepage- Can see pics items
+2)Filtering items page - search by price
+3) Favourites - to view liked items
+4) Message User/buyer pg -To send between each other
+
+1) Homepage
+<Head>
+Nav bar:
+  (1)App name logo
+  (2)Search button -> search page
+  (3)Favourite button
+  (4)Login(button) if needed
+  *Admin Specific*
+   (1) posting
+   (2) Remove
+   (3) Mark items as SOLD!
+
+<Body>
+  (1) Pictures for 2 categories -> bring up to each category detail
+  (2) Messsage button -> inbox page
+
+
+
+
+<Footnotes>
+  (1) Mini icon
+  (2) Contact seller
+
+
+
+2)
+
+
+3)
+
+
+
+4)
+
+
+
+
+
+Buttons:
+-favourites
+-send Message
+-posting
+-deleting
+-sold
+
+*Admin Specific*
+-sold
+
+*To Think About:*
+IMPORTANT--(like lightbnb but ask if need a login/out button)--
+Niche items.
+show diff items on home pg with a link leading to seperate pages for the specific item.(same html as homepage for others)
