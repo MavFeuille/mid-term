@@ -1,5 +1,17 @@
-Features
+- SELLER{ user- items(1 to many, FK on many table reference to PK table, therfore user_id key in items table, so no admin id)
+- BUYER{ 1--many, 1 user can by many things, buyer_id
+-buyer_id exists === sold IS NOT NULL, else buyer_id IS NULL
+should see sold! if it has id.
+-user--fav = many-many
+-messages table 2 user id,pointing to user. many-many within user table.same logic. 2 are FK pointing to same table.
+sent box.diff interface to contain msg
 
+*IMPORTANT*bridging table doesnt have many duplicates
+
+Features
+* whether ur owner of item or not = whether can post/delete or view favourites. (lightbnb format)
+* API - sendgrid, mailguard- for messages
+* in-app table msg, 3 columns userid, content, userid2(receiver), notification bar to fetch all messages
 ---
 Multi-pg (CATAGORIES TO BE SOLD(3))
 ___
