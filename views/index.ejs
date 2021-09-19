@@ -1,17 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<head>
+  <title>Home Page</title>
+
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <title>Our Site</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+    crossorigin="anonymous"></script>
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
+
+</head>
+
+<body>
+
+
+  <!---------------- navbar code at very top of page ----------->
+  <nav class="navbar navbar-light bg-light fixed-top">
+    <div class="container-fluid">
+      <h7 class="navbar-brand" href="#">OUR SITE <FONT COLOR="black">be happy in your own skin ⌒✧</FONT>
+      </h7>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+        aria-controls="offcanvasNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Whatever Your Heart Desires</h5>
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Login</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Filter By
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
+                <li><a class="dropdown-item" href="#">Category</a></li>
+                <li><a class="dropdown-item" href="#">Price</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#">Suggested For You</a></li>
+              </ul>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-info" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- ----------top banner poster for the hompage ---------->
+  <section class="homepage">
+    <div class="vc_row element-row row vc_custom_1478727859541">
+      <div class="wpb_column vc_column_container vc_col-sm-12">
+        <div class="wpb_wrapper">
+          <div class="fw-section hb-fw-599b22a654ae9 without-border no-overlay light-style"
+            style=background-color:#bdb2fc; background-size:cover; padding-top:40px; padding-bottom:100px;">
+            <div class="banner">
+              <a><img src="https://i.ibb.co/zGHrbrS/mypic.jpg" alt="mypic" border="0"></a>
+            </div>
+            <div class="row fw-content-wrap">
+              <div class="col-12 nbm">
+                <div id="learning-automated-div" style="text-align: center; font-size: 48px;
+       line-height: 52px; padding: 100px 5px 10px 5px;">
+                  <span style="color:#FFFFFF;">Our Site!</span>
+                </div>
+                <div style="text-align: center; font-size: 18px; line-height: 22px; padding: 0 5px 40px 5px;">
+                  <div style="text-align: center;">
+
+                  </div>
+                </div>
+              </div>
+              <div class="video-overlay no-overlay"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--
+      <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100" src="https://i.ibb.co/zGHrbrS/mypic.jpg" alt="First slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="https://letterelife.com/wp-content/uploads/2019/04/Girlfriend-Collective.jpg" alt="Second slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="..." alt="Third slide">
+          </div>
+        </div>
+      </div> -->
+  </section>
+</body>
+
+
+
+<!-- ---------for 3 category cards in the center of pg/colour background -------------->
+<section class="middle">
+
+  <body>
+    <div class="card1">
+      <div class="card" style="width: 18rem;">
+        <img src="https://cdn.shopify.com/s/files/1/0648/1955/files/Cleansers_shot.jpg?v=1611945111"
+          class="card-img-top" alt="beauty category poster">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">An item</li>
+          <!-- <li class="list-group-item">A second item</li> -->
+          <!-- <li class="list-group-item">A third item</li> -->
+        </ul>
+        <div class="card-body">
+          <a href="#" class="card-link">Card link</a>
+          <!-- <a href="#" class="card-link">Another link</a> -->
+        </div>
+      </div>
+    </div>
+
+    <div class="card2">
+      <div class="card" style="width: 18rem;">
+        <img
+          src="https://i1.wp.com/bloggers.society19.com/wp-content/uploads/2015/11/phonecase2.jpg?resize=550%2C550&ssl=1"
+          class="card-img-top" alt="accessories category poster">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">An item</li>
+          <!-- <li class="list-group-item">A second item</li>
+      <li class="list-group-item">A third item</li> -->
+        </ul>
+        <div class="card-body">
+          <a href="#" class="card-link">Card link</a>
+          <!-- <a href="#" class="card-link">Another link</a> -->
+        </div>
+      </div>
+    </div>
+
+    <div class="card3">
+      <div class="card" style="width: 18rem;">
+        <img src="https://letterelife.com/wp-content/uploads/2019/04/Girlfriend-Collective.jpg" class="card-img-top"
+          alt="clothing category poster">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">An item</li>
+          <!-- <li class="list-group-item">A second item</li>
+      <li class="list-group-item">A third item</li> -->
+        </ul>
+        <div class="card-body">
+          <a href="#" class="card-link">Card link</a>
+          <!-- <a href="#" class="card-link">Another link</a> -->
+        </div>
+      </div>
+    </div>
+  </body>
+</section>
+
+
+
+<!-- --------all footer code below--------- -->
+<footer>
+  <!DOCTYPE html>
+  <html>
+
   <head>
-    <title>Home Page</title>
-
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untitled</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
   </head>
 
   <body>
-    <h1>Hello World!</h1>
+    <div class="footer-basic">
+      <footer>
+        <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i
+              class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a
+            href="#"><i class="icon ion-social-facebook"></i></a></div>
+        <ul class="list-inline">
+          <li class="list-inline-item"><a href="#">Home</a></li>
+          <li class="list-inline-item"><a href="#">Services</a></li>
+          <li class="list-inline-item"><a href="#">About</a></li>
+          <li class="list-inline-item"><a href="#">Terms</a></li>
+          <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+        </ul>
+        <p class="copyright">Company Name © 2018</p>
+      </footer>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
   </body>
+
+  </html>
+</footer>
+
 </html>

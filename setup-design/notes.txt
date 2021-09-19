@@ -1,4 +1,6 @@
 *Remember no functioning login route, just a localhost/login page: app.get route
+-carousel
+-
 
 - SELLER{ user- items(1 to many, FK on many table reference to PK table, therfore user_id key in items table, so no admin id)
 - BUYER{ 1-many, 1 user can by many things, buyer_id

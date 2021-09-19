@@ -1,5 +1,11 @@
-B GET
-R GET
-E POST
-A POST
-D POST
+B GET    /homepage
+R POST   /homepage/add-item
+E POST  /homepage/:id/favourites GET favourites list
+A GET    /homepage/filtered-items *if-else statements function
+D DELETE /homepage/:user_id/favourites/:id/delete
+D DELETE  /homepage//items_id/delete *admin can delete anything
+
+
+
+
+
