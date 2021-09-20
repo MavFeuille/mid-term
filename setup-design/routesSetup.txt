@@ -1,5 +1,6 @@
 B GET    /homepage
-R POST   /homepage/add-item
+R GET    /category/:item-id   (each item info page)
+E POST   /homepage/add-item
 E POST  /homepage/:id/favourites GET favourites list
 A GET    /homepage/filtered-items *if-else statements function
 D DELETE /homepage/:user_id/favourites/:id/delete

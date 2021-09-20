@@ -1,12 +1,16 @@
 // See: https://sass-lang.com/
 
 body {
-  background-color: #EEE;
+
+  padding-left: 10%;
+  padding-right: 20%;
 
   h1 {
     color: #244751;
   }
 }
+
+
 
 // .navbar navbar-light bg-light fixed-top {
 //  display: flex;
@@ -45,6 +49,36 @@ img.card-img-top {
   // margin-top: 1em;
 
  }
+
+ .main-container {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   padding-right: 10%;
+   border-right: 30px;
+ }
+
+ .item-description-banner {
+  transition: opacity 1s;
+  opacity: 1;
+  width: 1020px;
+  height: 497px;
+  aspect-ratio: auto 1020 / 497;
+  vertical-align: middle;
+ }
+
+ .item-image {
+  background: rgba(64,70,72,0);
+ }
+
+ .item-description {
+  display: flex;
+  justify-content: center;
+  padding-left: 5%;
+  padding-right: 5%;
+  max-width: 550;
+}
+
 
 
 //  -------all footer css styling below--------
