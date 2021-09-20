@@ -15,6 +15,7 @@ const { Pool } = require('pg');
 const dbParams = require('./lib/db.js');
 const db = new Pool(dbParams);
 db.connect();
+const databaseHelpers = require('./db/database-helper')(db);
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
@@ -49,6 +50,16 @@ app.use("/api/widgets", widgetsRoutes(db));
 app.get("/", (req, res) => {
   res.render("index");
 });
+
+app.get("/item", (req, res) => {
+  databaseHelpers.getItem()
+    .then((result) => {
+      console.log("result: ", result);
+      res.render("item_details", {items: result});
+  })
+
+});
+
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
