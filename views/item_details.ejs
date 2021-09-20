@@ -29,7 +29,7 @@
 <div class="w3-content">
   <img class="item-description-banner" src="https://ohnatural.co.nz/wp-content/uploads/2019/06/Skincare-banner-1600x779-for-blog.jpg" alt="custom_html_banner1">
  </div>
-
+<!-- <%= JSON %> -->
     <!-- ---------- breadcrumb directory under banner ------------->
     <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
       <ol class="breadcrumb">
@@ -41,14 +41,47 @@
 
     <!----------- main container for item image and item description ------------>
     <div class="main-container">
+    <% for(let item of items) { %>
+          <%= console.log("item.title: ", Object.values(item.title)) %>
+          <%= console.log("item cover photo: ", item.cover_photo_url)%>
+          <%= item.title %></td>
+      <% } %>
       <div class="item-image">
         <img class="item-image" src="https://www.skinceuticals.com/dw/image/v2/AANG_PRD/on/demandware.static/-/Sites-acd-skinceuticals-master-catalog/default/dw3ffce951/pdpimages/C-E-Ferulic-635494263008-SkinCeuticals.jpg?sw=465&sfrm=jpg&q=70" alt="item-image">
         <i class="bi bi-suit-heart"></i>
+
+
       </div>
+      <div class="main-container">
+        <% for(let item of items) { %>
+        <tr>
+          <!-- <%= console.log("item.title: ", Object.values(item.title)) %> -->
+          <!-- <%= console.log("item.title: ", Object.values(items)) %> -->
+          <!-- <%= console.log("item cover photo: ", item.cover_photo_url)%> -->
+
+          <td><%= item.cover_photo_url %></td>
+
+        </tr>
+        <% } %>
+        <!-- <tr>
+          <% for(let item of items) { %>
+          <%= console.log("item.title: ", Object.values(item)) %>
+          <td><%= item.title %></td>
+
+        </tr>
+        <% } %>
+        <% for(let item of items) { %>
+        <tr>
+          <%= console.log("item.title: ", Object.values(item)) %>
+          <td><%= item.title %></td>
+
+        </tr>
+      <% } %> --> -->
       <div class="item-description"></div>
+
           <p>A patented daytime vitamin C serum for skin that delivers advanced environmental protection, all the while improving the appearance of fine lines and wrinkles, loss of firmness, and brightening your skin's complexion.</p>
       </div>
-
     </div>
-
   </body>
+</table>
+
