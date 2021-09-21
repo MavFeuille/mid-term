@@ -55,6 +55,7 @@ section.banner {
   margin-top: 6em;
   margin-left: 5em;
 }
+
 .middle {
   display:flex;
   justify-content: space-evenly;
@@ -109,6 +110,7 @@ footer {
   display: flex;
   flex-direction: column-reverse;
   justify-content: flex-end;
+}
 
 .footer-basic li {
   padding:0 10px;
@@ -173,10 +175,5 @@ footer {
   color:#aaa;
   margin-bottom:0;
 }
-
-
-
-
-
 
 
