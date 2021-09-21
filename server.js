@@ -27,7 +27,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
   "/styles",
   sass({
-    src: __dirname + "/styles",
+    src: __dirname + "/public/sass/",
     dest: __dirname + "/public/styles",
     debug: true,
     outputStyle: "expanded",
@@ -52,9 +52,25 @@ app.use("/api/widgets", widgetsRoutes(db));
 app.get("/", (req, res) => {
   res.render("index");
 });
-
 app.get("/favourites", (req, res) => {
-  res.render("favourites");
+  databaseHelpers.getItems().then((result) => {
+    console.log("result: ", result);
+    res.render("favourites", { items: result });
+  });
+});
+
+app.get("/category", (req, res) => {
+  databaseHelpers.getItems().then((result) => {
+    console.log("result: ", result);
+    res.render("category", { items: result });
+  });
+});
+
+app.get("/item_description", (req, res) => {
+  databaseHelpers.getItems().then((result) => {
+    console.log("result: ", result);
+    res.render("category", { items: result });
+  });
 });
 
 app.listen(PORT, () => {

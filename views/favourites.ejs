@@ -5,7 +5,11 @@
 
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/public/styles/style.css" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/flickity@2/dist/flickity.min.css"
+    />
 
     <!-- Bootstrap CSS -->
     <link
@@ -24,16 +28,15 @@
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
   </head>
-  <header><%- include('_header') %></header>
 
   <body>
     <section class="favourites">
       <div class="carousel" data-flickity='{ "wrapAround": true }'>
-        <div class="carousel-cell"></div>
-        <div class="carousel-cell"></div>
-        <div class="carousel-cell"></div>
-        <div class="carousel-cell"></div>
-        <div class="carousel-cell"></div>
+        <% for(let item in items) { %>
+        <div class="carousel-cell">
+          <img src="<%= item.thumnail_photo_url %>" />
+        </div>
+        <% } %>
       </div>
     </section>
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
