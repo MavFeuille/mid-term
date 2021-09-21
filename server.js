@@ -52,11 +52,13 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
+app.get("/home", (req, res) => {
+  res.render("index");
+});
 
+app.get("/home/:category", (req, res) => {
 
-app.get("/category", (req, res) => {
-
-  databaseHelpers.getItems()
+  databaseHelpers.getCategory(req.params.category)
     .then((result) => {
       console.log("result: ", result);
       res.render("category", {items: result});
