@@ -7,10 +7,20 @@ const helpers = function (db) {
        return result.rows;
      })
      .catch((err) => {
-       null;
+      console.log('error!', err.message);
   })
 }
 
+  const getCategory = function (category) {
+    return db
+    .query(`SELECT * FROM items WHERE category = $1`, [category])
+    .then((result) => {
+      return result.rows;
+    })
+    .catch((err) => {
+      console.log('error!', err.message);
+    })
+  }
 
   const getFavourites = function () {
     return db
@@ -35,7 +45,7 @@ const getItem = function (items_id) {
 })
 }
 
-return {getItems, getFavourites, getItem};
+return {getItems, getFavourites, getItem, getCategory};
 };
 
 

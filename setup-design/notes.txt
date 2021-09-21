@@ -1,6 +1,4 @@
 *Remember no functioning login route, just a localhost/login page: app.get route
--carousel
--
 
 - SELLER{ user- items(1 to many, FK on many table reference to PK table, therfore user_id key in items table, so no admin id)
 - BUYER{ 1-many, 1 user can by many things, buyer_id
@@ -79,3 +77,9 @@ Buttons:
 IMPORTANT--(like lightbnb but ask if need a login/out button)--
 Niche items.
 show diff items on home pg with a link leading to seperate pages for the specific item.(same html as homepage for others)
+
+
+
+
+__________CLEANUP___________
+1) remove views/items_detail if not needed
