@@ -51,14 +51,26 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.get("/item", (req, res) => {
-  databaseHelpers.getItem()
+
+
+app.get("/category", (req, res) => {
+
+  databaseHelpers.getItems()
     .then((result) => {
       console.log("result: ", result);
-      res.render("item_details", {items: result});
+      res.render("category", {items: result});
   })
 
 });
+
+app.get("/item_description", (req, res) => {
+  databaseHelpers.getItems()
+  .then((result) => {
+    console.log("result: ", result);
+    res.render("category", {items: result});
+})
+
+})
 
 
 app.listen(PORT, () => {
