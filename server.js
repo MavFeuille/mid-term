@@ -15,6 +15,7 @@ const { Pool } = require('pg');
 const dbParams = require('./lib/db.js');
 const db = new Pool(dbParams);
 db.connect();
+//requires helper function and directly calls db
 const databaseHelpers = require('./db/database-helper')(db);
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
@@ -72,22 +73,30 @@ app.get("/item_description", (req, res) => {
     console.log("result: ", result);
     res.render("item_description", {items: result});
 
-//     //if item button is clicked for 1st pic render the item description pg of 1st item
-//    if(buttonA.submit && item.id === 1) {
-//      res.render({items:result})
-
-//    }
-//   //if item button is clicked for 2nd pic render the item description pg of 2nd item
-//    if(buttonB.submit && item.id === 2) {
-//     res.render({items:result})
-
-//   }
-//  //if item button is clicked for 3st pic render the item description pg of 3rd item
-//   if(buttonC.submit && item.id === 3) {
-//     res.render({items:result})
-//   }
   })
 })
+
+app.get("/item_description/:id", (req, res) => {
+  //*IMP*req.params.id is assoc with whatevr name is after : in route name
+  databaseHelpers.getItem(req.params.id)
+  .then((result) => {
+    console.log("result: ", result);
+    res.render("item_description", {items: result});
+
+  })
+})
+// /route/:id, req.params.id=assoc with :id in route, res.render to id specific page
+
+app.get("/favourites", (req, res) => {
+
+  databaseHelpers.getFavourites()
+    .then((result) => {
+      console.log("result: ", result);
+      res.render("favourites", {items: result});
+
+  })
+
+});
 
 
 app.listen(PORT, () => {
