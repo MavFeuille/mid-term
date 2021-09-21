@@ -16,9 +16,9 @@ const helpers = function (db) {
   const getItemsByPrice = function (minPrice = 0, maxPrice = 10000000) {
     // condition
     //btwn function
-    let lessThan = `SELECT * FROM items ;`;
+    let lessThan = `SELECT * FROM items;`
     return db
-    .query(lessThan,[minPrice, maxPrice])
+    .query(lessThan)
     .then((result) => {
       //  console.log(result)
        return result.rows;
