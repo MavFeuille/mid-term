@@ -74,6 +74,13 @@ img.card-img-top {
   background: rgba(64,70,72,0);
  }
 
+ .item-description-container {
+   display: flex;
+   flex-direction: column;
+   border-style: solid;
+   border-width: 5px;
+ }
+
  .item-description {
   display: flex;
   justify-content: center;
