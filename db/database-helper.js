@@ -1,5 +1,5 @@
 const helpers = function (db) {
-  const getItem = function () {
+  const getItems = function () {
     return db
      .query(`SELECT * FROM items`)
      .then((result) => {
@@ -9,23 +9,7 @@ const helpers = function (db) {
        null;
   })
   }
-
-  // getItemCoverPhoto();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-return {getItem};
+return {getItems};
 };
 
 module.exports = helpers;
