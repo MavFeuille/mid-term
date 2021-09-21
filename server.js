@@ -64,12 +64,28 @@ app.get("/category", (req, res) => {
     console.log("result: ", result);
     res.render("category", { items: result });
   });
+  //if statements with 3 item page routes. if button 1 clicked res.render first item page etc.
 });
 
 app.get("/item_description", (req, res) => {
   databaseHelpers.getItems().then((result) => {
     console.log("result: ", result);
-    res.render("category", { items: result });
+    res.render("item_description", { items: result });
+
+    //     //if item button is clicked for 1st pic render the item description pg of 1st item
+    //    if(buttonA.submit && item.id === 1) {
+    //      res.render({items:result})
+
+    //    }
+    //   //if item button is clicked for 2nd pic render the item description pg of 2nd item
+    //    if(buttonB.submit && item.id === 2) {
+    //     res.render({items:result})
+
+    //   }
+    //  //if item button is clicked for 3st pic render the item description pg of 3rd item
+    //   if(buttonC.submit && item.id === 3) {
+    //     res.render({items:result})
+    //   }
   });
 });
 

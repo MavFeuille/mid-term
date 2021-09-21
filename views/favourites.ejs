@@ -31,6 +31,13 @@
   <body>
     <header><%- include('_header') %></header>
     <section class="homepage">
+      <% for(let item of items) { %> <%= console.log("item: ", item) %>
+
+      <td><%= item.title %></td>
+      <img src="<%= item.thumnail_photo_url %>" />
+      <td><%= item.price%></td>
+
+      <% } %>
       <div class="banner">
         <a
           ><img src="https://i.ibb.co/zGHrbrS/mypic.jpg" alt="mypic" border="0"
