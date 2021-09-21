@@ -42,8 +42,7 @@
     <!----------- main container for item image and item description ------------>
     <div class="main-container">
     <% for(let item of items) { %>
-          <%= console.log("item.title: ", Object.values(item.title)) %>
-          <%= console.log("item cover photo: ", item.cover_photo_url)%>
+          <%= console.log("item.title: ", Object.values(item)) %>
           <%= item.title %></td>
       <% } %>
       <div class="item-image">
@@ -58,9 +57,11 @@
           <!-- <%= console.log("item.title: ", Object.values(item.title)) %> -->
           <!-- <%= console.log("item.title: ", Object.values(items)) %> -->
           <!-- <%= console.log("item cover photo: ", item.cover_photo_url)%> -->
+          <%= console.log("item.title: ", Object.values(item.title)) %>
+          <%= item.title %></td>
 
-          <td><%= item.cover_photo_url %></td>
-
+          <td><%= item.title %></td>
+          <img src="<%= item.cover_photo_url %>" >
         </tr>
         <% } %>
         <!-- <tr>
