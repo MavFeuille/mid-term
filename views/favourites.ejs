@@ -2,14 +2,13 @@
 <html lang="en">
   <head>
     <title>Home Page</title>
-
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/public/styles/style.css" type="text/css" />
     <link
       rel="stylesheet"
       href="https://unpkg.com/flickity@2/dist/flickity.min.css"
     />
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+    <link rel="stylesheet" href="/public/styles/style.css" type="text/css" />
 
     <!-- Bootstrap CSS -->
     <link
@@ -30,15 +29,54 @@
   </head>
 
   <body>
-    <section class="favourites">
-      <div class="carousel" data-flickity='{ "wrapAround": true }'>
-        <% for(let item in items) { %>
-        <div class="carousel-cell">
-          <img src="<%= item.thumnail_photo_url %>" />
-        </div>
-        <% } %>
+    <header><%- include('_header') %></header>
+    <section class="homepage">
+      <div class="banner">
+        <a
+          ><img src="https://i.ibb.co/zGHrbrS/mypic.jpg" alt="mypic" border="0"
+        /></a>
       </div>
     </section>
+    <section class="favourites">
+      <div class="carousel" data-flickity='{ "wrapAround": true }'>
+        <div class="carousel-cell">
+          <img
+            src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/scp-images-copy-1534362599.jpg?crop=1xw:1xh;center,top&resize=480:*"
+          />
+        </div>
+        <div class="carousel-cell">
+          <img
+            src="https://images.beautycounter.com/product-images%2F100000250%2Fgallery%2Fimgs%2Fcleansing%20oil.jpeg?alt=media&auto=format&lossless=false&q=60&w=900"
+          />
+        </div>
+        <div class="carousel-cell">
+          <img
+            src="https://img.ltwebstatic.com/images3_pi/2020/08/04/1596507851d9c222c882def666fdcf3956f351ce93_thumbnail_600x.webp"
+          />
+          <div class="carousel-cell">
+            <img
+              src="https://us.elemis.com/media/catalog/product/cache/bd1f6bda496241c1e5f31bf01582d3f4/5/0/50143_pro-collagen_overnight_matrix_primary_back.png?auto=webp&optimize=high&crop=1:1&width=700"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="social">
+        <a href="#"><i class="icon ion-social-instagram"></i></a
+        ><a href="#"><i class="icon ion-social-snapchat"></i></a
+        ><a href="#"><i class="icon ion-social-twitter"></i></a
+        ><a href="#"><i class="icon ion-social-facebook"></i></a>
+      </div>
+      <ul class="list-inline">
+        <li class="list-inline-item"><a href="#">Home</a></li>
+        <li class="list-inline-item"><a href="#">Services</a></li>
+        <li class="list-inline-item"><a href="#">About</a></li>
+        <li class="list-inline-item"><a href="#">Terms</a></li>
+        <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+      </ul>
+      <p class="copyright">Company Name © 2021</p>
+    </footer>
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
     <script src="../public/scripts/flickity.js"></script>
   </body>
