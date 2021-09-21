@@ -1,5 +1,5 @@
 $(() => {
-  $.ajax({
+  $.ajax( {
     method: "GET",
     url: "/api/users"
   }).done((users) => {
@@ -8,3 +8,5 @@ $(() => {
     // }
   });;
 });
+//figure out how to access the price information, send data
+//impliment ajax call, search params of ajax call where min and max price will be called
