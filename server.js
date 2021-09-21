@@ -70,7 +70,13 @@ app.get("/home/:category", (req, res) => {
 
 
 app.get("/item_description", (req, res) => {
-  databaseHelpers.getItems()
+  //set the default price
+  const minP =req.params.minPrice || 0
+  const maxP =req.params.maxPrice || 10000000
+  
+  //wanna see numbers inputted
+  console.log("minmax req.params price",req.params);
+  databaseHelpers.getItemsByPrice(minP, maxP)
   .then((result) => {
     console.log("result: ", result);
     res.render("item_description", {items: result});
@@ -98,6 +104,13 @@ app.get("/favourites", (req, res) => {
 
   })
 
+});
+
+//generate a link that redirects to the appropriate longURL
+app.get ('/u/:id', (req, res) => {
+  const itemUrl = "/item_description/:id"
+
+  res.redirect(itemUrl, {items: result});
 });
 
 
