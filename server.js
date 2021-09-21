@@ -27,7 +27,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
   "/styles",
   sass({
-    src: __dirname + "/public/sass/",
+    src: __dirname + "/styles",
     dest: __dirname + "/public/styles",
     debug: true,
     outputStyle: "expanded",

@@ -6,9 +6,9 @@
       rel="stylesheet"
       href="https://unpkg.com/flickity@2/dist/flickity.min.css"
     />
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/public/styles/style.css" type="text/css" />
+
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
 
     <!-- Bootstrap CSS -->
     <link
@@ -17,6 +17,7 @@
       integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="/styles/style.css" type="text/css" />
     <title>Our Site</title>
 
     <script
@@ -31,13 +32,6 @@
   <body>
     <header><%- include('_header') %></header>
     <section class="homepage">
-      <% for(let item of items) { %> <%= console.log("item: ", item) %>
-
-      <td><%= item.title %></td>
-      <img src="<%= item.thumnail_photo_url %>" />
-      <td><%= item.price%></td>
-
-      <% } %>
       <div class="banner">
         <a
           ><img src="https://i.ibb.co/zGHrbrS/mypic.jpg" alt="mypic" border="0"
