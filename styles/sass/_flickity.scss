@@ -7,7 +7,7 @@
   height: 25em;
 }
 h2 {
-  font-family: "Playfair Display Italic";
+  font-family: "Raleway Medium Italic";
 }
 .favourites {
   h2 {
@@ -15,11 +15,11 @@ h2 {
     text-align: center;
     margin: 1.5em 0 1.5em 0;
     color: black;
-    font-family: "Playfair Display Italic";
+    font-family: "Raleway Medium Italic";
   }
   span {
     color: #ca1cbf;
-    font-family: "Playfair Display Italic";
+    font-family: "Raleway Medium Italic";
   }
 }
 .carousel {
@@ -36,6 +36,7 @@ h2 {
   counter-increment: carousel-cell;
   p {
     color: #ca1cbf;
+    font-family: "Raleway Medium";
   }
 }
 
