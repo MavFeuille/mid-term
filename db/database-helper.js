@@ -21,6 +21,17 @@ const helpers = function (db) {
        .catch((err) => {
         console.log('error!', err.message);
     })
+  }
+
+  const getUserByEmail = function (email) {
+    return db
+       .query(`SELECT * FROM users WHERE email = $1;`, [email])
+       .then((result) => {
+         return result.rows[0];
+       })
+       .catch((err) => {
+        console.log('error!', err.message);
+    })
 
   }
 
@@ -88,7 +99,7 @@ const helpers = function (db) {
 
 
 
-return {getItems, getFavourites, getItem, getCategory, getItemsByPrice, getUser };
+return {getItems, getFavourites, getItem, getCategory, getItemsByPrice, getUser, getUserByEmail  };
 };
 
 
