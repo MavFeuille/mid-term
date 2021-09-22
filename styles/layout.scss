@@ -91,8 +91,9 @@ img.card-img-top {
 
  .item-image {
   background: rgba(64,70,72,0);
-  font-size: large;
+  font-size: medium;
   color: rgb(77, 9, 20);
+
  }
 
  .item-description {
@@ -103,6 +104,14 @@ img.card-img-top {
   max-width: 550;
 }
 
+.fas.fa-heart {
+  color: #4056A1;
+}
+
+.far.fa-heart:hover {
+  color: red;
+
+}
 
 
 
