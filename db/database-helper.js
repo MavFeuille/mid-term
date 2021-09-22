@@ -43,10 +43,18 @@ const helpers = function (db) {
     })
   }
 
-  const getFavourites = function () {
+  // SELECT books.id, isbn as isbn, name FROM stores LEFT JOIN books ON books.id = books.id WHERE store_id IS NOT NULL GROUP BY books.id;
+
+  const getFavourites = function (user_id) {
     return db
-    .query(`SELECT * FROM favourite_items LEFT JOIN items ON favourites.items_id = items.id;`)
+    .query(`
+      SELECT *
+      FROM items
+      LEFT JOIN favourite_items ON items.id = favourite_items.items_id
+      WHERE favourite_items.user_id = $1;
+      `  , [user_id])
     .then((result) => {
+      console.log("user_id: ", user_id);
       return result.rows;
     })
     .catch((err) => {
