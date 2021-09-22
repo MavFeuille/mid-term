@@ -16,7 +16,6 @@ app.use(cookieSession({
   keys: ["eSgVkYp3s6v9y$B&E)H@McQfTjWmZq4t", "z$C&F)J@NcRfUjWnZr4u7x!A%D*G-KaP" ]
 }));
 
-
 // PG database client/connection setup
 const { Pool } = require("pg");
 const dbParams = require("./lib/db.js");
@@ -42,11 +41,6 @@ app.use(
   })
 );
 app.use(express.static("public"));
-
-app.use(cookieSession({
-  name: "session",
-  keys: ["eSgVkYp3s6v9y$B&E)H@McQfTjWmZq4t", "z$C&F)J@NcRfUjWnZr4u7x!A%D*G-KaP" ]
-}));
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
@@ -84,14 +78,6 @@ app.get("/login", (req, res) => {
   res.render("urls_login", templateVars);
 });
 
-<<<<<<< HEAD
-// POST /login
-// app.post("/login", (req, res) => {
-
-//   const email = req.body.email;
-//   const password = req.body.password;
-//   // const userResult = authenticateUser(email, password,users);
-=======
 
 app.post("/login", (req, res) => {
   const tmpPassword = bcryptjs.hashSync('123')
@@ -125,27 +111,13 @@ app.post("/login", (req, res) => {
   res.render("index", templateVars);
 });
   // const userResult = authenticateUser(email, password,users);
->>>>>>> 788450094d7f9582996f80f272ec864f3459c8db
 
 
-//   // getUser
+  // getUser
 
-//   // databaseHelpers.getUser(user_id)
-//   // console.log("users.pw: ", users.password);
+  // databaseHelpers.getUser(user_id)
+  // console.log("users.pw: ", users.password);
 
-<<<<<<< HEAD
-//   databaseHelpers.getUser(req.params.id).then((result) => {
-//     console.log("result: ", result);
-//     res.redirect("/logged_in", { items: result });
-//   });
-
-//   if (err) {
-//     console.log("error!!!!!!:" , err);
-//     return res.status(401).send("Invalid credentials");
-//   }
-//   // req.session["userID"] = userResult.user.id;
-//   // return res.redirect("/");
-=======
   // databaseHelpers.getUser(req.params.id).then((result) => {
   //   console.log("result: ", result);
   //   res.redirect("/logged_in", { items: result });
@@ -157,9 +129,8 @@ app.post("/login", (req, res) => {
   // }
   // req.session["userID"] = userResult.user.id;
   // return res.redirect("/");
->>>>>>> 788450094d7f9582996f80f272ec864f3459c8db
 
-// });
+});
 
 
 app.get("/home", (req, res) => {
