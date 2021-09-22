@@ -58,6 +58,11 @@ app.get("/home", (req, res) => {
   res.render("index");
 });
 
+app.get("/home/logged_in", (req, res) => {
+  res.render("index");
+});
+
+
 app.get("/home/:category", (req, res) => {
 
   databaseHelpers.getCategory(req.params.category)
