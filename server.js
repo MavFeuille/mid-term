@@ -53,18 +53,19 @@ app.use("/api/widgets", widgetsRoutes(db));
 app.get("/", (req, res) => {
   res.render("index");
 });
-app.get("/favourites", (req, res) => {
-  databaseHelpers.getItems().then((result) => {
-    console.log("result: ", result);
-    res.render("favourites", { items: result });
-  });
+
+
+app.get("/home", (req, res) => {
+  res.render("index");
 });
 
-app.get("/category", (req, res) => {
-  databaseHelpers.getItems().then((result) => {
-    console.log("result: ", result);
-    res.render("category", { items: result });
-  });
+app.get("/home/:category", (req, res) => {
+
+  databaseHelpers.getCategory(req.params.category)
+    .then((result) => {
+      console.log("result: ", result);
+      res.render("category", {items: result});
+  })
   //if statements with 3 item page routes. if button 1 clicked res.render first item page etc.
 });
 
@@ -83,6 +84,13 @@ app.get("/item_description/:id", (req, res) => {
   });
 });
 // /route/:id, req.params.id=assoc with :id in route, res.render to id specific page
+
+app.get("/favourites", (req, res) => {
+  databaseHelpers.getItems().then((result) => {
+    console.log("result: ", result);
+    res.render("favourites", { items: result });
+  });
+});
 
 app.get("/favourites/:id", (req, res) => {
   databaseHelpers.getFavourites(req.params.id).then((result) => {
