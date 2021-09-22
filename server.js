@@ -15,12 +15,8 @@ const { Pool } = require("pg");
 const dbParams = require("./lib/db.js");
 const db = new Pool(dbParams);
 db.connect();
-<<<<<<< HEAD
-const databaseHelpers = require("./db/database-helper")(db);
-=======
 //requires helper function and directly calls db
-const databaseHelpers = require('./db/database-helper')(db);
->>>>>>> cd3ed64f80ca7aa32f3753eac2a2de1a07fe2bca
+const databaseHelpers = require("./db/database-helper")(db);
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
@@ -57,7 +53,6 @@ app.use("/api/widgets", widgetsRoutes(db));
 app.get("/", (req, res) => {
   res.render("index");
 });
-<<<<<<< HEAD
 app.get("/favourites", (req, res) => {
   databaseHelpers.getItems().then((result) => {
     console.log("result: ", result);
@@ -70,75 +65,31 @@ app.get("/category", (req, res) => {
     console.log("result: ", result);
     res.render("category", { items: result });
   });
-=======
-
-app.get("/home", (req, res) => {
-  res.render("index");
-});
-
-app.get("/home/:category", (req, res) => {
-
-  databaseHelpers.getCategory(req.params.category)
-    .then((result) => {
-      console.log("result: ", result);
-      res.render("category", {items: result});
-
-  })
->>>>>>> cd3ed64f80ca7aa32f3753eac2a2de1a07fe2bca
   //if statements with 3 item page routes. if button 1 clicked res.render first item page etc.
 });
 
 app.get("/item_description", (req, res) => {
   databaseHelpers.getItems().then((result) => {
     console.log("result: ", result);
-<<<<<<< HEAD
     res.render("item_description", { items: result });
-
-    //     //if item button is clicked for 1st pic render the item description pg of 1st item
-    //    if(buttonA.submit && item.id === 1) {
-    //      res.render({items:result})
-
-    //    }
-    //   //if item button is clicked for 2nd pic render the item description pg of 2nd item
-    //    if(buttonB.submit && item.id === 2) {
-    //     res.render({items:result})
-
-    //   }
-    //  //if item button is clicked for 3st pic render the item description pg of 3rd item
-    //   if(buttonC.submit && item.id === 3) {
-    //     res.render({items:result})
-    //   }
   });
 });
-=======
-    res.render("item_description", {items: result});
-
-  })
-})
 
 app.get("/item_description/:id", (req, res) => {
   //*IMP*req.params.id is assoc with whatevr name is after : in route name
-  databaseHelpers.getItem(req.params.id)
-  .then((result) => {
+  databaseHelpers.getItem(req.params.id).then((result) => {
     console.log("result: ", result);
-    res.render("item_description", {items: result});
-
-  })
-})
+    res.render("item_description", { items: result });
+  });
+});
 // /route/:id, req.params.id=assoc with :id in route, res.render to id specific page
 
 app.get("/favourites", (req, res) => {
-
-  databaseHelpers.getFavourites()
-    .then((result) => {
-      console.log("result: ", result);
-      res.render("favourites", {items: result});
-
-  })
-
+  databaseHelpers.getFavourites().then((result) => {
+    console.log("result: ", result);
+    res.render("favourites", { items: result });
+  });
 });
-
->>>>>>> cd3ed64f80ca7aa32f3753eac2a2de1a07fe2bca
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
