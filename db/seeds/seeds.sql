@@ -67,6 +67,15 @@ INSERT INTO items (
   )
   VALUES (1, 2);
 
+   INSERT INTO favourite_items (
+     items_id, user_id
+  )
+  VALUES (2, 2);
+
+ INSERT INTO favourite_items (
+     items_id, user_id
+  )
+  VALUES (3, 2);
 
 /*items id is not present error when trying to insert into favourites
 npm reset:db not working bcuz line 7 thumnail. but its correct */
