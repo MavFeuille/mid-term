@@ -8,8 +8,12 @@
 const express = require('express');
 const router  = express.Router();
 
+
 module.exports = (db) => {
+
   router.get("/", (req, res) => {
+    req.session.userID = req.params.id;
+
     db.query(`SELECT * FROM users;`)
       .then(data => {
         const users = data.rows;
@@ -22,4 +26,5 @@ module.exports = (db) => {
       });
   });
   return router;
+
 };

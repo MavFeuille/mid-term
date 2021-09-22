@@ -11,18 +11,18 @@ const helpers = function (db) {
     })
   }
 
-  //function to get users
-  const getUser = function (users_id) {
-    return db
-       .query(`SELECT * FROM users WHERE users.id = $1;`, [users_id])
-       .then((result) => {
-         return result.rows;
-       })
-       .catch((err) => {
-        console.log('error!', err.message);
-    })
+  // //function to get users
+  // const getUser = function (users_id) {
+  //   return db
+  //      .query(`SELECT * FROM users WHERE users.id = $1;`, [users_id])
+  //      .then((result) => {
+  //        return result.rows;
+  //      })
+  //      .catch((err) => {
+  //       console.log('error!', err.message);
+  //   })
 
-  }
+  // }
 
   //call get items for given min and max price will go to values, else renders default
   // so ask users what min and max price they WebAuthentication. also check webs
@@ -88,7 +88,7 @@ const helpers = function (db) {
 
 
 
-return {getItems, getFavourites, getItem, getCategory, getItemsByPrice, getUser };
+return {getItems, getFavourites, getItem, getCategory, getItemsByPrice};
 };
 
 
