@@ -16,17 +16,19 @@ const helpers = function (db) {
   const getItemsByPrice = function (minPrice = 0, maxPrice = 10000000) {
     // condition
     //btwn function
-    let lessThan = `SELECT * FROM items;`
+    let queryString = `SELECT * FROM items WHERE price >= $1 AND price <= $2;`
     return db
-    .query(lessThan)
+    .query(queryString, [minPrice, maxPrice])
     .then((result) => {
-      //  console.log(result)
+      // console.log("minPrice: ", minPrice);
+      console.log(".....Result.rows.length: ", result.rows.length);
        return result.rows;
      })
      .catch((err) => {
       console.log('error!', err.message);
   })
 }
+
 
 
 

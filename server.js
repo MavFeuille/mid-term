@@ -60,7 +60,7 @@ app.get("/home/:category", (req, res) => {
 
   databaseHelpers.getCategory(req.params.category)
     .then((result) => {
-      console.log("result: ", result);
+      // console.log("result: ", result);
       res.render("category", {items: result});
 
   })
@@ -73,12 +73,28 @@ app.get("/item_description", (req, res) => {
   //set the default price
   const minP =req.params.minPrice || 0
   const maxP =req.params.maxPrice || 10000000
-  
+
   //wanna see numbers inputted
-  console.log("minmax req.params price",req.params);
+  console.log("<<<<<<<<<< minmax req.params price",req.params);
   databaseHelpers.getItemsByPrice(minP, maxP)
   .then((result) => {
-    console.log("result: ", result);
+    // console.log("result: ", result);
+    res.render("item_description", {items: result});
+
+  })
+})
+
+app.post("/item_description", (req, res) => {
+  //set the default price
+  console.log("<<<<<<<<<< minmax req.body price",req.body);
+  const minP =req.body.minPrice || 0
+  const maxP =req.body.maxPrice || 10000000
+
+  //wanna see numbers inputted
+
+  databaseHelpers.getItemsByPrice(minP, maxP)
+  .then((result) => {
+    // console.log("result: ", result);
     res.render("item_description", {items: result});
 
   })
@@ -88,7 +104,7 @@ app.get("/item_description/:id", (req, res) => {
   //*IMP*req.params.id is assoc with whatevr name is after : in route name
   databaseHelpers.getItem(req.params.id)
   .then((result) => {
-    console.log("result: ", result);
+    // console.log("result: ", result);
     res.render("item_description", {items: result});
 
   })
@@ -99,7 +115,7 @@ app.get("/favourites", (req, res) => {
 
   databaseHelpers.getFavourites()
     .then((result) => {
-      console.log("result: ", result);
+      // console.log("result: ", result);
       res.render("favourites", {items: result});
 
   })

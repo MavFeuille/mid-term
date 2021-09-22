@@ -41,8 +41,8 @@
           <button class="btn btn-outline-info" type="submit">Search</button>
         </form>
 
-        <!-- -----new code----- -->
-        <form id="searchForm" class="attribute-selected" action="/item_description" method="get">
+        <!-------Filter in the nav bar ------->
+        <form id="searchForm" class="attribute-selected" action="/item_description" method="post">
         <fieldset class="price-filter">
           <legend class="sr-only">Filter by price</legend>
           <div>
@@ -59,7 +59,7 @@
               <input type="text" name="maxPrice" id="maxPrice" value="" data-type="price">
           </div>
           <button type="submit" class="button-task" data-event="PriceSelected">
-              Update</button>
+              Filter</button>
       </fieldset>
     </form>
       </div>
