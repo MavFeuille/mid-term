@@ -25,63 +25,52 @@
       integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
       crossorigin="anonymous"
     ></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
   </head>
 
   <body>
     <header><%- include('_header') %></header>
-    <% for(let item of items) { %> <%= console.log("item: ", item) %>
-    <td><%= item.title %></td>
-    <img src="<%= item.thumbnail_photo_url %>" />
-    <td><%= item.price%></td>
-    <% } %>
+
     <section class="homepage">
       <div class="banner">
-        <a
-          ><img src="https://i.ibb.co/zGHrbrS/mypic.jpg" alt="mypic" border="0"
-        /></a>
+
       </div>
     </section>
     <section class="favourites">
+      <h2>Favourites</h2>
       <div class="carousel" data-flickity='{ "wrapAround": true }'>
+        <% for(let item of items) { %>
+
         <div class="carousel-cell">
-          <img
-            src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/scp-images-copy-1534362599.jpg?crop=1xw:1xh;center,top&resize=480:*"
-          />
+
+          <img class="fav-image" src="<%= item.thumbnail_photo_url %>" />
+          <p><%= item.title %></p>
+          <p><%= item.price%></p>
         </div>
-        <div class="carousel-cell">
-          <img
-            src="https://images.beautycounter.com/product-images%2F100000250%2Fgallery%2Fimgs%2Fcleansing%20oil.jpeg?alt=media&auto=format&lossless=false&q=60&w=900"
-          />
-        </div>
-        <div class="carousel-cell">
-          <img
-            src="https://img.ltwebstatic.com/images3_pi/2020/08/04/1596507851d9c222c882def666fdcf3956f351ce93_thumbnail_600x.webp"
-          />
-          <div class="carousel-cell">
-            <img
-              src="https://us.elemis.com/media/catalog/product/cache/bd1f6bda496241c1e5f31bf01582d3f4/5/0/50143_pro-collagen_overnight_matrix_primary_back.png?auto=webp&optimize=high&crop=1:1&width=700"
-            />
-          </div>
+        <% } %>
+
+
         </div>
       </div>
     </section>
     <footer>
-      <div class="social">
-        <a href="#"><i class="icon ion-social-instagram"></i></a
-        ><a href="#"><i class="icon ion-social-snapchat"></i></a
-        ><a href="#"><i class="icon ion-social-twitter"></i></a
-        ><a href="#"><i class="icon ion-social-facebook"></i></a>
+      <div class="footer-basic">
+        <footer>
+          <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i
+                class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a
+              href="#"><i class="icon ion-social-facebook"></i></a></div>
+          <ul class="list-inline">
+            <li class="list-inline-item"><a href="#">Home</a></li>
+            <li class="list-inline-item"><a href="#">Services</a></li>
+            <li class="list-inline-item"><a href="#">About</a></li>
+            <li class="list-inline-item"><a href="#">Terms</a></li>
+            <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+          </ul>
+          <p class="copyright">Company Name © 2018</p>
+        </footer>
       </div>
-      <ul class="list-inline">
-        <li class="list-inline-item"><a href="#">Home</a></li>
-        <li class="list-inline-item"><a href="#">Services</a></li>
-        <li class="list-inline-item"><a href="#">About</a></li>
-        <li class="list-inline-item"><a href="#">Terms</a></li>
-        <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
-      </ul>
-      <p class="copyright">Company Name © 2021</p>
     </footer>
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
     <script src="../public/scripts/flickity.js"></script>
