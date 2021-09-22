@@ -14,3 +14,4 @@ $(() => {
 
 });
 
+//fetch fav page by ajax, and itwillappend/update to the arr
