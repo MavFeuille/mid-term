@@ -57,14 +57,15 @@ app.use("/api/widgets", widgetsRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  req.session.user_id = req.params.user.id;
 
-  // if (req.sessions.user_id) {
-  //   res.redirect("/home/:id")
+  // req.session.user_id = req.params.users.id;
+
+  // console.log('++++user undefined check', user)
+  // console.log('++++req.params undefined check',req.params)
+
+  // if (!req.sessions.user_id) {
+  //   res.render("index");
   // }
-  if (!req.sessions.user_id) {
-    res.redirect ('/');
-  }
   res.render("index");
   // res.redirect (`/`);
 });
@@ -109,27 +110,7 @@ app.post("/login", (req, res) => {
   // console.log("++++++++", req.session.user_id)
   templateVars.user = user;
   res.render("index", templateVars);
-});
-  // const userResult = authenticateUser(email, password,users);
-
-
-  // getUser
-
-  // databaseHelpers.getUser(user_id)
-  // console.log("users.pw: ", users.password);
-
-  // databaseHelpers.getUser(req.params.id).then((result) => {
-  //   console.log("result: ", result);
-  //   res.redirect("/logged_in", { items: result });
-  // });
-
-  // if (err) {
-  //   console.log("error!!!!!!:" , err);
-  //   return res.status(401).send("Invalid credentials");
-  // }
-  // req.session["userID"] = userResult.user.id;
-  // return res.redirect("/");
-
+  });
 });
 
 
@@ -206,6 +187,34 @@ app.get("/favourites/:id", (req, res) => {
   });
 });
 
+
+
+app.post("/favourites/:id", (req, res) => {
+  const tmpPassword = bcryptjs.hashSync('123')
+  //  console.log(">>>>>>>>", tmpPassword)
+  const email = req.body.email;
+  const password = req.body.password;
+  const templateVars = {};
+
+  if (!email || !password) {
+    templateVars.error = 'Please login to view favourites'
+    return res.render("index", templateVars);
+  }
+
+  databaseHelpers.addFavourites(req.params.id).then((result) => {
+    console.log("result: ", result);
+   return res.direct("/favourites/:id", { items: result });
+  });
+  // res.redirect("")
+});
+
+
+
+
+
+
+
+// ____________PORT______________
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
