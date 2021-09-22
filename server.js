@@ -53,26 +53,50 @@ app.use("/api/widgets", widgetsRoutes(db));
 app.get("/", (req, res) => {
   res.render("index");
 });
-app.get("/favourites", (req, res) => {
-  databaseHelpers.getItems().then((result) => {
-    console.log("result: ", result);
-    res.render("favourites", { items: result });
-  });
+
+app.get("/home", (req, res) => {
+  res.render("index");
 });
 
-app.get("/category", (req, res) => {
-  databaseHelpers.getItems().then((result) => {
-    console.log("result: ", result);
-    res.render("category", { items: result });
-  });
+app.get("/home/:category", (req, res) => {
+
+  databaseHelpers.getCategory(req.params.category)
+    .then((result) => {
+      console.log("result: ", result);
+      res.render("category", {items: result});
+  })
   //if statements with 3 item page routes. if button 1 clicked res.render first item page etc.
 });
 
 app.get("/item_description", (req, res) => {
-  databaseHelpers.getItems().then((result) => {
-    console.log("result: ", result);
-    res.render("item_description", { items: result });
-  });
+  //set the default price
+  const minP =req.params.minPrice || 0
+  const maxP =req.params.maxPrice || 10000000
+
+  //wanna see numbers inputted
+  console.log("<<<<<<<<<< minmax req.params price",req.params);
+  databaseHelpers.getItemsByPrice(minP, maxP)
+  .then((result) => {
+    // console.log("result: ", result);
+    res.render("item_description", {items: result});
+
+  })
+})
+
+app.post("/item_description", (req, res) => {
+  //set the default price
+  console.log("<<<<<<<<<< minmax req.body price",req.body);
+  const minP =req.body.minPrice || 0
+  const maxP =req.body.maxPrice || 10000000
+
+  //wanna see numbers inputted
+
+  databaseHelpers.getItemsByPrice(minP, maxP)
+  .then((result) => {
+    // console.log("result: ", result);
+    res.render("item_description", {items: result});
+
+  })
 });
 
 app.get("/item_description/:id", (req, res) => {
@@ -83,6 +107,13 @@ app.get("/item_description/:id", (req, res) => {
   });
 });
 // /route/:id, req.params.id=assoc with :id in route, res.render to id specific page
+
+// app.get("/favourites", (req, res) => {
+//   databaseHelpers.getItems().then((result) => {
+//     console.log("result: ", result);
+//     res.render("favourites", { items: result });
+//   });
+// });
 
 app.get("/favourites/:id", (req, res) => {
   databaseHelpers.getFavourites(req.params.id).then((result) => {

@@ -43,7 +43,6 @@ const helpers = function (db) {
     })
   }
 
-  // SELECT books.id, isbn as isbn, name FROM stores LEFT JOIN books ON books.id = books.id WHERE store_id IS NOT NULL GROUP BY books.id;
 
   const getFavourites = function (user_id) {
     return db
