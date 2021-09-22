@@ -1,7 +1,7 @@
 INSERT INTO users (email, password)
 VALUES
- ('mario@hotmail.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.'), ('ktwist0@deviantart.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.' ),('kalki@gmail.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.' ),
- ('tylerromero@inbox.com', '$2a$10$FB/BOAVhpuLvpOREQVmvmezD4ED/.JBIDRh70tGevYzYzQgFId2u.');
+ ('mario@hotmail.com', '123'), ('ktwist0@deviantart.com', '222' ),('kalki@gmail.com', '333' ),
+ ('tylerromero@inbox.com', '444');
 
 INSERT INTO items (
   title, price, description, cover_photo_url, thumbnail_photo_url, category, user_id, seller_id)
