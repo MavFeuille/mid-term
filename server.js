@@ -9,6 +9,7 @@ const bodyParser = require("body-parser");
 const sass = require("node-sass-middleware");
 const app = express();
 const morgan = require("morgan");
+const cookieSession = require("cookie-session");
 
 // PG database client/connection setup
 const { Pool } = require("pg");
@@ -54,8 +55,42 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
+// GET /login
+app.get("/login", (req, res) => {
+
+  const user = users[req.session["userID"]];
+  const templateVars = { user, urls: urlDatabase };
+
+  res.render("urls_login", templateVars);
+});
+
+// POST /login
+app.post("/login", (req, res) => {
+
+  const email = req.body.email;
+  const password = req.body.password;
+  const userResult = authenticateUser(email, password,users);
+
+  console.log("users.pw: ", users.password);
+
+  if (userResult.error) {
+
+    console.log(userResult.error);
+    return res.status(401).send("Invalid credentials");
+
+  }
+  req.session["userID"] = userResult.user.id;
+  return res.redirect("/urls");
+
+});
+
+
 app.get("/home", (req, res) => {
   res.render("index");
+});
+
+app.get("/home/logged_in", (req, res) => {
+  res.render("logged_in");
 });
 
 app.get("/home/:category", (req, res) => {
