@@ -81,7 +81,7 @@ app.get("/login", (req, res) => {
 
 app.post("/login", (req, res) => {
   const tmpPassword = bcryptjs.hashSync('123')
- console.log(">>>>>>>>", tmpPassword)
+//  console.log(">>>>>>>>", tmpPassword)
   const email = req.body.email;
   const password = req.body.password;
   const templateVars = {};
@@ -92,7 +92,7 @@ app.post("/login", (req, res) => {
   }
 
  databaseHelpers.getUserByEmail(email).then((user) => {
-  console.log(">>>>>>>>>>result: ", user);
+  // console.log(">>>>>>>>>>result: ", user);
   if (!user) {
     console.log("user not found.........")
     templateVars.error = 'No account plz register'
@@ -101,12 +101,12 @@ app.post("/login", (req, res) => {
   //compares both inputed passwords
   const checkPassword = bcryptjs.compareSync(password, user.password);
   if (!checkPassword){
-    console.log("wrong password .........")
+    // console.log("wrong password .........")
     templateVars.error = 'Wrong password'
     return res.render("index", templateVars)
   }
   req.session.user_id = user.id;
-  console.log("++++++++", req.session.user_id)
+  // console.log("++++++++", req.session.user_id)
   templateVars.user = user;
   res.render("index", templateVars);
 });
