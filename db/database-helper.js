@@ -11,6 +11,7 @@ const helpers = function (db) {
     })
   }
 
+<<<<<<< HEAD
   // //function to get users
   // const getUser = function (users_id) {
   //   return db
@@ -23,6 +24,31 @@ const helpers = function (db) {
   //   })
 
   // }
+=======
+  //function to get users
+  const getUser = function (users_id) {
+    return db
+       .query(`SELECT * FROM users WHERE users.id = $1;`, [users_id])
+       .then((result) => {
+         return result.rows;
+       })
+       .catch((err) => {
+        console.log('error!', err.message);
+    })
+  }
+
+  const getUserByEmail = function (email) {
+    return db
+       .query(`SELECT * FROM users WHERE email = $1;`, [email])
+       .then((result) => {
+         return result.rows[0];
+       })
+       .catch((err) => {
+        console.log('error!', err.message);
+    })
+
+  }
+>>>>>>> 788450094d7f9582996f80f272ec864f3459c8db
 
   //call get items for given min and max price will go to values, else renders default
   // so ask users what min and max price they WebAuthentication. also check webs
@@ -88,7 +114,11 @@ const helpers = function (db) {
 
 
 
+<<<<<<< HEAD
 return {getItems, getFavourites, getItem, getCategory, getItemsByPrice};
+=======
+return {getItems, getFavourites, getItem, getCategory, getItemsByPrice, getUser, getUserByEmail  };
+>>>>>>> 788450094d7f9582996f80f272ec864f3459c8db
 };
 
 

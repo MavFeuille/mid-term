@@ -1,6 +1,6 @@
 INSERT INTO users (email, password)
 VALUES
- ('mario@hotmail.com', '123'), ('ktwist0@deviantart.com', '222' ),('kalki@gmail.com', '333' ),
+ ('mario@hotmail.com', '$2a$10$GbpxiC5B2.ab7v9hae.uruaMuI.8LVySWcgwSbPCEUMsyUT8hfJhG'), ('ktwist0@deviantart.com', '$2a$10$GbpxiC5B2.ab7v9hae.uruaMuI.8LVySWcgwSbPCEUMsyUT8hfJhG' ),('kalki@gmail.com', '$2a$10$GbpxiC5B2.ab7v9hae.uruaMuI.8LVySWcgwSbPCEUMsyUT8hfJhG' ),
  ('tylerromero@inbox.com', '444');
 
 INSERT INTO items (

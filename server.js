@@ -9,7 +9,12 @@ const bodyParser = require("body-parser");
 const sass = require("node-sass-middleware");
 const app = express();
 const morgan = require("morgan");
+const bcryptjs = require ('bcryptjs');
 const cookieSession = require("cookie-session");
+app.use(cookieSession({
+  name: "session",
+  keys: ["eSgVkYp3s6v9y$B&E)H@McQfTjWmZq4t", "z$C&F)J@NcRfUjWnZr4u7x!A%D*G-KaP" ]
+}));
 
 
 // PG database client/connection setup
@@ -58,24 +63,69 @@ app.use("/api/widgets", widgetsRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
+  req.session.user_id = req.params.user.id;
+
+  // if (req.sessions.user_id) {
+  //   res.redirect("/home/:id")
+  // }
+  if (!req.sessions.user_id) {
+    res.redirect ('/');
+  }
   res.render("index");
+  // res.redirect (`/`);
 });
 
-// GET /login
-// app.get("/login", (req, res) => {
 
-//   const user = users[req.session["userID"]];
-//   const templateVars = { user, urls: urlDatabase };
+app.get("/login", (req, res) => {
 
-//   res.render("urls_login", templateVars);
-// });
+  const user = users[req.session["userID"]];
+  const templateVars = { user, urls: urlDatabase };
 
+  res.render("urls_login", templateVars);
+});
+
+<<<<<<< HEAD
 // POST /login
 // app.post("/login", (req, res) => {
 
 //   const email = req.body.email;
 //   const password = req.body.password;
 //   // const userResult = authenticateUser(email, password,users);
+=======
+
+app.post("/login", (req, res) => {
+  const tmpPassword = bcryptjs.hashSync('123')
+ console.log(">>>>>>>>", tmpPassword)
+  const email = req.body.email;
+  const password = req.body.password;
+  const templateVars = {};
+
+  if (!email || !password) {
+   templateVars.error = 'email and password cannot be empty'
+   return res.render("index", templateVars);
+  }
+
+ databaseHelpers.getUserByEmail(email).then((user) => {
+  console.log(">>>>>>>>>>result: ", user);
+  if (!user) {
+    console.log("user not found.........")
+    templateVars.error = 'No account plz register'
+    return res.render("index", templateVars);
+  }
+  //compares both inputed passwords
+  const checkPassword = bcryptjs.compareSync(password, user.password);
+  if (!checkPassword){
+    console.log("wrong password .........")
+    templateVars.error = 'Wrong password'
+    return res.render("index", templateVars)
+  }
+  req.session.user_id = user.id;
+  console.log("++++++++", req.session.user_id)
+  templateVars.user = user;
+  res.render("index", templateVars);
+});
+  // const userResult = authenticateUser(email, password,users);
+>>>>>>> 788450094d7f9582996f80f272ec864f3459c8db
 
 
 //   // getUser
@@ -83,6 +133,7 @@ app.get("/", (req, res) => {
 //   // databaseHelpers.getUser(user_id)
 //   // console.log("users.pw: ", users.password);
 
+<<<<<<< HEAD
 //   databaseHelpers.getUser(req.params.id).then((result) => {
 //     console.log("result: ", result);
 //     res.redirect("/logged_in", { items: result });
@@ -94,6 +145,19 @@ app.get("/", (req, res) => {
 //   }
 //   // req.session["userID"] = userResult.user.id;
 //   // return res.redirect("/");
+=======
+  // databaseHelpers.getUser(req.params.id).then((result) => {
+  //   console.log("result: ", result);
+  //   res.redirect("/logged_in", { items: result });
+  // });
+
+  // if (err) {
+  //   console.log("error!!!!!!:" , err);
+  //   return res.status(401).send("Invalid credentials");
+  // }
+  // req.session["userID"] = userResult.user.id;
+  // return res.redirect("/");
+>>>>>>> 788450094d7f9582996f80f272ec864f3459c8db
 
 // });
 
