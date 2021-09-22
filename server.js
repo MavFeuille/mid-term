@@ -56,31 +56,38 @@ app.get("/", (req, res) => {
 });
 
 // GET /login
-app.get("/login", (req, res) => {
+// app.get("/login", (req, res) => {
 
-  const user = users[req.session["userID"]];
-  const templateVars = { user, urls: urlDatabase };
+//   const user = users[req.session["userID"]];
+//   const templateVars = { user, urls: urlDatabase };
 
-  res.render("urls_login", templateVars);
-});
+//   res.render("urls_login", templateVars);
+// });
 
 // POST /login
 app.post("/login", (req, res) => {
 
   const email = req.body.email;
   const password = req.body.password;
-  const userResult = authenticateUser(email, password,users);
+  // const userResult = authenticateUser(email, password,users);
 
-  console.log("users.pw: ", users.password);
 
-  if (userResult.error) {
+  // getUser
 
-    console.log(userResult.error);
+  // databaseHelpers.getUser(user_id)
+  // console.log("users.pw: ", users.password);
+
+  databaseHelpers.getUser(req.params.id).then((result) => {
+    console.log("result: ", result);
+    res.redirect("/logged_in", { items: result });
+  });
+
+  if (err) {
+    console.log("error!!!!!!:" , err);
     return res.status(401).send("Invalid credentials");
-
   }
-  req.session["userID"] = userResult.user.id;
-  return res.redirect("/urls");
+  // req.session["userID"] = userResult.user.id;
+  // return res.redirect("/");
 
 });
 
