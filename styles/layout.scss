@@ -11,12 +11,13 @@ body {
 }
 
 
+.btn.btn-secondary.favourites-form {
+  background-color:rgb(236, 10, 10);
+}
+.clicked {
+  background-color:rgb(245, 143, 203);
+}
 
-// .navbar navbar-light bg-light fixed-top {
-//  display: flex;
-
-
-// }
 .products{
   display: flex;
   flex-wrap: wrap;
