@@ -18,6 +18,7 @@
     crossorigin="anonymous"></script>
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
+  <script type="text/javascript" src="/scripts/client.js"></script>
 
 </head>
 <header>
@@ -45,6 +46,7 @@
 
 
   <!----------- main container for item image and item description ------------>
+  <% if (user_id) { %>
   <div class="main-container">
     <% for(let item of items) { %>
       <%= console.log("item.title: ", Object.values(item.title)) %>
@@ -53,12 +55,19 @@
         <a href="/item_description/<%=item.id%>">
         <img src=" <%=item.thumbnail_photo_url %>" class="img-thumbnail" alt="..." method="GET" action=" item_description/<%=item.id%>">
         </a>
-          <td>$<%= item.price%></td>
-          <a href="/favourites/<%=items.user_id%>">
-          <button type="button" class="btn btn-danger" method="POST" action="/favourites/<%=items.user_id%>"> ❤️</button>
-        </a>
-          <% } %>
 
+          <td>$<%= item.price%></td>
+        <td>
+          <%= console.log(" user_id ", user_id)%>
+          <!-- <form  method="POST" action="<%=`/favourites/${user_id}`%>" class="favourites-form"> -->
+
+            <button type="click" class="btn btn-danger favourites-form"  data-item="<%= item.id%>"> ❤️ </button>
+            <!-- <i class="fas fa-heart" data-item="<%= item.id %>" data-id="fas-fa-heart" id="fas-fa-heart"></i> -->
+          <!-- </form> -->
+        </td>
+
+          <% } %>
+          <%}%>
             <!-- <div class="item-image">
               <i class="bi bi-suit-heart"></i>
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"

@@ -1,3 +1,4 @@
+//terminal end that catches client.js all requests
 // load .env data into process.env
 require("dotenv").config();
 
@@ -123,11 +124,12 @@ app.get("/home/logged_in", (req, res) => {
 });
 
 app.get("/home/:category", (req, res) => {
-
+  req.session.user_id
   databaseHelpers.getCategory(req.params.category)
     .then((result) => {
       console.log("result: ", result);
-      res.render("category", {items: result});
+      res.render("category", {items: result, user_id:  req.session.user_id });
+
   })
   //if statements with 3 item page routes. if button 1 clicked res.render first item page etc.
 });
@@ -189,27 +191,30 @@ app.get("/favourites/:id", (req, res) => {
 
 
 
-app.post("/favourites/:id", (req, res) => {
+app.post("/favourites", (req, res) => {
   const tmpPassword = bcryptjs.hashSync('123')
-  //  console.log(">>>>>>>>", tmpPassword)
-  const email = req.body.email;
-  const password = req.body.password;
+  // req.session.user_id = user.id;
+  // req.session.item_id = items.id;
+  const user_id = req.session.user_id
+  const item_id = req.body.item_id
   const templateVars = {};
-
-  if (!email || !password) {
-    templateVars.error = 'Please login to view favourites'
-    return res.render("index", templateVars);
-  }
-
-  databaseHelpers.addFavourites(req.params.id).then((result) => {
+  // console.log('value of the heart++++++req.session',req.session)
+  // console.log('.......user_id, item_id',user_id, item_id)
+  databaseHelpers.addFavourites(user_id, item_id).then((result) => {
     console.log("result: ", result);
-   return res.direct("/favourites/:id", { items: result });
+   res.render("/favourites/:id", { items: result });
   });
-  // res.redirect("")
 });
+//add conditions to favouriting= if item exists dont add
 
-
-
+app.post ('/items_description/:id/delete', (req, res) => {
+  const shortURL = req.params.shortURL;
+  const user_id = req.session.user_id;
+  if (user_id) {
+    delete urlDatabase[shortURL];
+  }
+  res.redirect ('/urls');
+});
 
 
 
