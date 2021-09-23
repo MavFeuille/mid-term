@@ -172,6 +172,30 @@ app.get("/item_description/:id", (req, res) => {
     res.render("item_description", { items: result });
   });
 });
+
+// GET admin page for admin only
+//QUESTION--cant find seller id
+app.get("/admin", (req, res) => {
+  //*IMP*req.params.id is assoc with whatevr name is after : in route name
+  console.log("req.session``````: ", req.session);
+  // req.session.user_id = user.id;
+  const tmpPassword = bcryptjs.hashSync('123');
+  const user_id = req.session.user_id;
+  const item_id = req.body.item_id;
+  const templateVars = {};
+  console.log("---------USER ID: ", user_id)
+
+  if(user_id) {
+  console.log(("...User is logged in....."), user_id)
+  } else {
+    return res.status(401).send("You do not have access to this page");
+  }
+  databaseHelpers.getUserSeller(user_id).then((result) => {
+    console.log("result: ", result);
+    res.render("admin", { items: result, user: user_id });
+  });
+  // res.render("admin", { items: result });
+});
 // /route/:id, req.params.id=assoc with :id in route, res.render to id specific page
 
 // app.get("/favourites", (req, res) => {
@@ -181,6 +205,7 @@ app.get("/item_description/:id", (req, res) => {
 //   });
 // });
 
+//show a specific users fav page, ex favourites/1
 app.get("/favourites/:id", (req, res) => {
   databaseHelpers.getFavourites(req.params.id).then((result) => {
     console.log("<<<<<<<<<<req.params.id:", req.params.id);
@@ -188,9 +213,10 @@ app.get("/favourites/:id", (req, res) => {
     res.render("favourites", { items: result });
   });
 });
+//make route for /favourites/summary page for each user
 
 
-
+//favourites button functionality to add fav item to db w/o re-direct due to UX
 app.post("/favourites", (req, res) => {
   const tmpPassword = bcryptjs.hashSync('123')
   // req.session.user_id = user.id;
@@ -202,20 +228,52 @@ app.post("/favourites", (req, res) => {
   // console.log('.......user_id, item_id',user_id, item_id)
   databaseHelpers.addFavourites(user_id, item_id).then((result) => {
     console.log("result: ", result);
-   res.render("/favourites/:id", { items: result });
+   return res.json({ items: result });
   });
 });
-//add conditions to favouriting= if item exists dont add
 
-app.post ('/items_description/:id/delete', (req, res) => {
-  const shortURL = req.params.shortURL;
-  const user_id = req.session.user_id;
-  if (user_id) {
-    delete urlDatabase[shortURL];
+
+
+//POST DELETE items by seller only
+app.post("/home/delete", (req, res) => {
+
+  const seller_id = req.params.seller_id;
+
+  const tmpPassword = bcryptjs.hashSync('123');
+  const item_id = req.body.item_id;
+  console.log("delete item_id :", item_id);
+  const templateVars = {};
+
+  if (seller_id) {
+    console.log("...Seller is here.....");
+
+    databaseHelpers.removeItem(seller_id, item_id).then((result) => {
+      console.log("====== item DELETED =======")
+      res.render("admin", { items: result });
+    });
+
   }
-  res.redirect ('/urls');
+
+  // delete urlDatabase[shortURL];
+  // console.log("result: ", result);
+  // res.redirect("/urls");
 });
 
+//____for mark sold function____
+// const buyer_id = req.params.shortURL;
+// if (buyer_id) {
+  //   return res.status(401).send("Authorization required to delete this short URL.");
+  //   //   console.log("userID", userID);
+  //   // } else {
+    // //   const urlsUser = urlsForUser(userID, urlDatabase);
+    // //   console.log("urlsUser: ", urlsUser);
+    //   if (urlsUser) {
+//     console.log(`Delete shortURL request sent:`, req.params.shortURL);
+//     return res.redirect("/urls");
+//   // } else {
+//   //   return res.status(401).send("You do not have access to this URL");
+//   // }
+// }
 
 
 

@@ -23,6 +23,35 @@ const helpers = function (db) {
       })
     }
 
+    // Functions to verify if user is a seller
+    const getSeller = function (seller_id) {
+      return db
+         .query(`SELECT * FROM items WHERE seller_id = $1;`, [seller_id])
+         .then((result) => {
+           return result.rows;
+         })
+         .catch((err) => {
+          console.log('error!', err.message);
+      })
+    }
+
+    const getUserSeller = function (user_id) {
+      return db
+        //  .query(`SELECT * FROM items WHERE seller_id is NOT NULL AND user_id = $1;`, [user_id])
+        .query(`
+        SELECT *
+        FROM users
+        JOIN items ON items.seller_id = users.id WHERE users.id = $1 AND seller_id is NOT NULL;`, [user_id]
+        )
+         .then((result) => {
+           return result.rows;
+         })
+         .catch((err) => {
+          console.log('error!', err.message);
+      })
+    }
+
+
     const getUserByEmail = function (email) {
       return db
          .query(`SELECT * FROM users WHERE email = $1;`, [email])
@@ -119,12 +148,11 @@ const helpers = function (db) {
       .catch((err) => console.log(err.message))
   };
 
-  const removeItem = function(item_id) {
+  const removeItem = function(item_id, seller_id,) {
 
     const queryString = (`
-    DELETE FROM items WHERE items.id = $1
-    RETURNING *;`, [item_id]);
-
+    DELETE FROM items WHERE items.id = $1 AND items.seller_id is NOT NULL
+    RETURNING *;`, [item_id, seller_id]);
     // const values = [item_id]
 
     return db
@@ -139,7 +167,7 @@ const helpers = function (db) {
 
 
 
-return {getItems, getFavourites, getItem, getCategory, getItemsByPrice, getUser, getUserByEmail, addFavourites, removeItem  };
+return {getItems, getFavourites, getItem, getCategory, getItemsByPrice, getUser, getUserByEmail, addFavourites, removeItem, getSeller, getUserSeller };
 };
 
 
