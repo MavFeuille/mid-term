@@ -9,7 +9,12 @@ const bodyParser = require("body-parser");
 const sass = require("node-sass-middleware");
 const app = express();
 const morgan = require("morgan");
+const bcryptjs = require ('bcryptjs');
 const cookieSession = require("cookie-session");
+app.use(cookieSession({
+  name: "session",
+  keys: ["eSgVkYp3s6v9y$B&E)H@McQfTjWmZq4t", "z$C&F)J@NcRfUjWnZr4u7x!A%D*G-KaP" ]
+}));
 
 // PG database client/connection setup
 const { Pool } = require("pg");
@@ -52,10 +57,20 @@ app.use("/api/widgets", widgetsRoutes(db));
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
+
+  // req.session.user_id = req.params.users.id;
+
+  // console.log('++++user undefined check', user)
+  // console.log('++++req.params undefined check',req.params)
+
+  // if (!req.sessions.user_id) {
+  //   res.render("index");
+  // }
   res.render("index");
+  // res.redirect (`/`);
 });
 
-// GET /login
+
 app.get("/login", (req, res) => {
 
   const user = users[req.session["userID"]];
@@ -64,24 +79,38 @@ app.get("/login", (req, res) => {
   res.render("urls_login", templateVars);
 });
 
-// POST /login
-app.post("/login", (req, res) => {
 
+app.post("/login", (req, res) => {
+  const tmpPassword = bcryptjs.hashSync('123')
+//  console.log(">>>>>>>>", tmpPassword)
   const email = req.body.email;
   const password = req.body.password;
-  const userResult = authenticateUser(email, password,users);
+  const templateVars = {};
 
-  console.log("users.pw: ", users.password);
-
-  if (userResult.error) {
-
-    console.log(userResult.error);
-    return res.status(401).send("Invalid credentials");
-
+  if (!email || !password) {
+   templateVars.error = 'email and password cannot be empty'
+   return res.render("index", templateVars);
   }
-  req.session["userID"] = userResult.user.id;
-  return res.redirect("/urls");
 
+ databaseHelpers.getUserByEmail(email).then((user) => {
+  // console.log(">>>>>>>>>>result: ", user);
+  if (!user) {
+    console.log("user not found.........")
+    templateVars.error = 'No account plz register'
+    return res.render("index", templateVars);
+  }
+  //compares both inputed passwords
+  const checkPassword = bcryptjs.compareSync(password, user.password);
+  if (!checkPassword){
+    // console.log("wrong password .........")
+    templateVars.error = 'Wrong password'
+    return res.render("index", templateVars)
+  }
+  req.session.user_id = user.id;
+  // console.log("++++++++", req.session.user_id)
+  templateVars.user = user;
+  res.render("index", templateVars);
+  });
 });
 
 
@@ -158,6 +187,34 @@ app.get("/favourites/:id", (req, res) => {
   });
 });
 
+
+
+app.post("/favourites/:id", (req, res) => {
+  const tmpPassword = bcryptjs.hashSync('123')
+  //  console.log(">>>>>>>>", tmpPassword)
+  const email = req.body.email;
+  const password = req.body.password;
+  const templateVars = {};
+
+  if (!email || !password) {
+    templateVars.error = 'Please login to view favourites'
+    return res.render("index", templateVars);
+  }
+
+  databaseHelpers.addFavourites(req.params.id).then((result) => {
+    console.log("result: ", result);
+   return res.direct("/favourites/:id", { items: result });
+  });
+  // res.redirect("")
+});
+
+
+
+
+
+
+
+// ____________PORT______________
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });

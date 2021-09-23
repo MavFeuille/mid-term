@@ -19,16 +19,18 @@
             <a class="nav-link active" aria-current="page" href="/home/">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Login</a>
+            <!-- <a class="nav-link" href="#">Login</a> -->
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button"
               data-bs-toggle="dropdown" aria-expanded="false">
-              Filter By
+              Login
             </a>
             <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
-              <li><a class="dropdown-item" href="#">Category</a></li>
-              <li><a class="dropdown-item" href="#">Price</a></li>
+              <!-- <li><a class="dropdown-item" href="#">Category</a></li>
+              <li><a class="dropdown-item" href="#">Price</a></li> -->
+
+              <li><a class="dropdown-item" href="/favourites">Favourite</a></li>
               <li>
                 <hr class="dropdown-divider">
               </li>
@@ -36,10 +38,21 @@
             </ul>
           </li>
         </ul>
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-info" type="submit">Search</button>
+        <li>
+        <form class="form-inline" action="/login" method="POST">
+          <div class="form-group mb-2">
+            <label for="email">Email address</label>
+            <input class="form-control" type="email" name="email" placeholder="Enter email" style="width: 300px; margin: 1em">
+          </div>
+          <div>
+            <label for="password">Password</label>
+            <input class="form-control" type="password" name="password" placeholder="Enter password" style="width: 300px; margin: 1em">
+            <button type="submit" class="btn btn-primary" href="/logged_in">Login</button>
+          </div>
+        </li>
         </form>
+
+        <!-- make a logout rout button  -->
 
         <!-------Filter in the nav bar ------->
         <form id="searchForm" class="attribute-selected" action="/item_description" method="post">
