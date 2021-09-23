@@ -148,18 +148,40 @@ const helpers = function (db) {
       .catch((err) => console.log(err.message))
   };
 
-  const removeItem = function(item_id, seller_id,) {
+  const itemSold = function(item_id) {
 
-    const queryString = (`
-    DELETE FROM items WHERE items.id = $1 AND items.seller_id is NOT NULL
-    RETURNING *;`, [item_id, seller_id]);
-    // const values = [item_id]
+    // SELECT * FROM items WHERE buyer_id IS NOT NULL;
+    const queryString = `
+    UPDATE items
+    SET buyer_id NOT NULL
+    WHERE items.id = $1
+    `;
+
+    const values = [
+    item_id,
+    ]
 
     return db
       .query(queryString, values)
       .then((result) => {
         console.log("Result.rows: ", result.rows[0])
         return result.rows[0];
+      })
+      .catch((err) => console.log(err.message))
+  };
+
+  //returns undefined items.id and {}
+  const removeItem = function(item_id) {
+
+    const queryString = (`
+    DELETE FROM items WHERE items.id = $1;`);
+    // const values =
+
+    return db
+      .query(queryString, [item_id])
+      .then((result) => {
+        console.log("------> GOOD TO GO!!!!!")
+        // return result.rows[0];
       })
       .catch((err) => console.log(err.message))
   };

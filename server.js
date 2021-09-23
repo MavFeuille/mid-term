@@ -233,27 +233,36 @@ app.post("/favourites", (req, res) => {
 });
 
 
-
-//POST DELETE items by seller only
-app.post("/home/delete", (req, res) => {
-
-  const seller_id = req.params.seller_id;
-
-  const tmpPassword = bcryptjs.hashSync('123');
-  const item_id = req.body.item_id;
-  console.log("delete item_id :", item_id);
+app.post("/item/sold", (req, res) => {
+  const tmpPassword = bcryptjs.hashSync('123')
+  const user_id = req.session.user_id
+  const item_id = req.body.item_id
   const templateVars = {};
 
-  if (seller_id) {
+  databaseHelpers.itemSold(user_id, item_id).then((result) => {
+    console.log("result: ", result);
+   return res.json({ items: result });
+  });
+});
+
+//POST DELETE items by seller only
+app.post("/item/delete", (req, res) => {
+
+  const tmpPassword = bcryptjs.hashSync('123');
+  // const seller_id = req.params.seller_id;
+  const user_id = req.session.user_id
+  const item_id = req.body.item_id;
+
+  console.log("delete item_id......... :", item_id);
+  const templateVars = {};
+
+  if (user_id) {
     console.log("...Seller is here.....");
-
-    databaseHelpers.removeItem(seller_id, item_id).then((result) => {
-      console.log("====== item DELETED =======")
-      res.render("admin", { items: result });
-    });
-
   }
-
+  databaseHelpers.removeItem(item_id).then((result) => {
+    console.log("====== item DELETED =======")
+  return res.status(200).json({status: ">>>>> item deleted!!!! <<<<<<"});
+  });
   // delete urlDatabase[shortURL];
   // console.log("result: ", result);
   // res.redirect("/urls");
