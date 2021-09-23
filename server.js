@@ -238,8 +238,10 @@ app.post("/item/sold", (req, res) => {
   const user_id = req.session.user_id
   const item_id = req.body.item_id
   const templateVars = {};
-
-  databaseHelpers.itemSold(user_id, item_id).then((result) => {
+  if (item_id) {
+    console.log("...ITEM exists to be SOLD ..");
+  }
+  databaseHelpers.itemSold(item_id).then((result) => {
     console.log("result: ", result);
    return res.json({ items: result });
   });

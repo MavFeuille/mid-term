@@ -153,14 +153,10 @@ const helpers = function (db) {
     // SELECT * FROM items WHERE buyer_id IS NOT NULL;
     const queryString = `
     UPDATE items
-    SET buyer_id NOT NULL
+    SET sold = true
     WHERE items.id = $1
     `;
-
-    const values = [
-    item_id,
-    ]
-
+    const values = [item_id];
     return db
       .query(queryString, values)
       .then((result) => {
@@ -189,7 +185,7 @@ const helpers = function (db) {
 
 
 
-return {getItems, getFavourites, getItem, getCategory, getItemsByPrice, getUser, getUserByEmail, addFavourites, removeItem, getSeller, getUserSeller };
+return {getItems, getFavourites, getItem, getCategory, getItemsByPrice, getUser, getUserByEmail, addFavourites, removeItem, getSeller, getUserSeller, itemSold };
 };
 
 

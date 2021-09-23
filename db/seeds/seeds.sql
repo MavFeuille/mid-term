@@ -6,7 +6,7 @@ VALUES
 INSERT INTO items (
   title, price, description, cover_photo_url, thumbnail_photo_url, category, user_id, sold, seller_id)
   VALUES (
-  'Skin Ceuticals CE FERULIC (30ml)', 190, 'A patented daytime vitamin C serum for skin that delivers advanced environmental protection, all the while improving the appearance of fine lines and wrinkles, loss of firmness, and brightening your skin complexion.', 'https://www.skinceuticals.com/dw/image/v2/AANG_PRD/on/demandware.static/-/Sites-acd-skinceuticals-master-catalog/default/dw3ffce951/pdpimages/C-E-Ferulic-635494263008-SkinCeuticals.jpg?sw=465&sfrm=jpg&q=70', 'https://www.skinceuticals.com/dw/image/v2/AANG_PRD/on/demandware.static/-/Sites-acd-skinceuticals-master-catalog/default/dw3ffce951/pdpimages/C-E-Ferulic-635494263008-SkinCeuticals.jpg?sw=270&sfrm=jpg&q=70', 1, 2, true, 1);
+  'Skin Ceuticals CE FERULIC (30ml)', 190, 'A patented daytime vitamin C serum for skin that delivers advanced environmental protection, all the while improving the appearance of fine lines and wrinkles, loss of firmness, and brightening your skin complexion.', 'https://www.skinceuticals.com/dw/image/v2/AANG_PRD/on/demandware.static/-/Sites-acd-skinceuticals-master-catalog/default/dw3ffce951/pdpimages/C-E-Ferulic-635494263008-SkinCeuticals.jpg?sw=465&sfrm=jpg&q=70', 'https://www.skinceuticals.com/dw/image/v2/AANG_PRD/on/demandware.static/-/Sites-acd-skinceuticals-master-catalog/default/dw3ffce951/pdpimages/C-E-Ferulic-635494263008-SkinCeuticals.jpg?sw=270&sfrm=jpg&q=70', 1, 2, false, 1);
 
 INSERT INTO items (
   title, price, description, cover_photo_url, thumbnail_photo_url, category, user_id, sold, seller_id)

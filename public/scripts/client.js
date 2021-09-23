@@ -21,6 +21,7 @@ $(document).ready(function () {
     );
   });
 
+
   $(".sold-form").on("click", function (event) {
     //stops from loading new page route
     event.preventDefault();
@@ -34,6 +35,7 @@ $(document).ready(function () {
         $(this).removeClass("btn-warning");
         // set the value upon clicking
         sessionStorage.setItem("isCliked", true);
+        return soldBadgeHTML;
       }
     );
   });
