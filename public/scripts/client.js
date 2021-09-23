@@ -23,20 +23,20 @@ $(document).ready(function () {
         sessionStorage.setItem('isCliked', true)
       });
 
-    //
-    //   if(sessionStorage.getItem('isCliked'){
-    //       $( "btn btn-secondary favourites-form" ).addClass( 'btn-success' );
+        //
+        //   if(sessionStorage.getItem('isCliked'){
+        //       $( "btn btn-secondary favourites-form" ).addClass( 'btn-success' );
 
-    //       $("btn btn-secondary favourites-form").removeClass( 'btn-default' );
-  // }
-//   $('#mylink').on('click',function() {
-//     $( this ).addClass( 'btn-success' );
+        //       $("btn btn-secondary favourites-form").removeClass( 'btn-default' );
+      // }
+    //   $('#mylink').on('click',function() {
+    //     $( this ).addClass( 'btn-success' );
 
-//     $( this ).removeClass( 'btn-default' );
-//     // set the value upon clicking
-//     localStorage.setItem('isCliked', true)
-//   });
-// });
+    //     $( this ).removeClass( 'btn-default' );
+    //     // set the value upon clicking
+    //     localStorage.setItem('isCliked', true)
+    //   });
+    // });
 
 
 
@@ -48,6 +48,15 @@ $(document).ready(function () {
 
   // });
     // });
-});
+  });
 
-//make a css class that changes button to gray and add that class to the button=event (event.target add class)using jquery
+//   $(".delete-form").on('click', function (event) {
+//     //stops from loading new page route
+//     event.preventDefault();
+//     $.post(`/favourites`, { item_id: $(event.target).data("item") })
+//       .then(() => {
+//       }
+
+// //make a css class that changes button to gray and add that class to the button=event (event.target add class)using jquery
+//       )}
+})

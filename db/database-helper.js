@@ -117,14 +117,29 @@ const helpers = function (db) {
         return result.rows[0];
       })
       .catch((err) => console.log(err.message))
+  };
 
+  const removeItem = function(item_id) {
 
+    const queryString = (`
+    DELETE FROM items WHERE items.id = $1
+    RETURNING *;`, [item_id]);
+
+    // const values = [item_id]
+
+    return db
+      .query(queryString, values)
+      .then((result) => {
+        console.log("Result.rows: ", result.rows[0])
+        return result.rows[0];
+      })
+      .catch((err) => console.log(err.message))
   };
 
 
 
 
-return {getItems, getFavourites, getItem, getCategory, getItemsByPrice, getUser, getUserByEmail, addFavourites  };
+return {getItems, getFavourites, getItem, getCategory, getItemsByPrice, getUser, getUserByEmail, addFavourites, removeItem  };
 };
 
 

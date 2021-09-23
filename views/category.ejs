@@ -66,12 +66,20 @@
               }
               </style> -->
             <button type="click" class="btn btn-secondary favourites-form"  data-item="<%= item.id%>"> favourite </button>
-            <!-- <i class="fas fa-heart" data-item="<%= item.id %>" data-id="fas-fa-heart" id="fas-fa-heart"></i> -->
-          <!-- </form> -->
-        </td>
 
+            <div>
+              <!-- <i class="fas fa-heart" data-item="<%= item.id %>" data-id="fas-fa-heart" id="fas-fa-heart"></i> -->
+              <!-- </form> -->
+              <% if (user_id === item.seller_id) { %>
+                <!-- <%= console.log("!!!!!! items.seller_id!!!!!!!!: ", item.seller_id)%> -->
+
+                <button type="click" class="btn btn-dark delete-form"  data-item="<%= item.id%>">Delete</button>
+                <%}%>
+              </div>
+            </td>
           <% } %>
-          <%}%>
+          <% } %>
+
             <!-- <div class="item-image">
               <i class="bi bi-suit-heart"></i>
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
