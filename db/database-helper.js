@@ -104,7 +104,7 @@ const helpers = function (db) {
 
     const values = [favourite_items.items_id, favourite_items.user_id];
 
-    return pool
+    return db
       .query(queryString, values)
       .then((result) => {
         console.log("Result.rows: ", result.rows[0]);

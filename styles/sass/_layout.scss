@@ -70,11 +70,9 @@ section.banner {
 
 img.card-img-top {
   display: flex;
-  // height: 20em;
 }
 
 .card-body {
-  // background-color: blue;
   width: 20em;
   align-self: center;
 }
@@ -102,8 +100,8 @@ img.card-img-top {
     height: auto;
   }
   .mb-3 {
-    width: 50em;
     height: 39em;
+    overflow: hidden;
   }
 }
 

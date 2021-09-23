@@ -18,6 +18,7 @@ CREATE TABLE items (
   thumbnail_photo_url VARCHAR(255) NOT NULL,
   category SMALLINT NOT NULL DEFAULT 0,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  buyer_id INT DEFAULT NULL,
   seller_id INTEGER REFERENCES users(id) ON DELETE CASCADE
 );
 
