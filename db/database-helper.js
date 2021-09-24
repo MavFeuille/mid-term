@@ -204,7 +204,6 @@ const helpers = function (db) {
       .catch((err) => console.log(err.message));
   };
 
-<<<<<<< HEAD
   // ADD new item
   const postItem = function(newItem) {
 // ('Ruched Sweetheart Neck Velvet Bodycon Dress', 26.00, 'xoxo green velvet body dress'
@@ -242,22 +241,6 @@ const helpers = function (db) {
 
 
 return {getItems, getFavourites, getItem, getCategory, getItemsByPrice, getUser, getUserByEmail, addFavourites, removeItem, getSeller, getUserSeller, itemSold, postItem };
-=======
-  return {
-    getItems,
-    getFavourites,
-    getItem,
-    getCategory,
-    getItemsByPrice,
-    getUser,
-    getUserByEmail,
-    addFavourites,
-    removeItem,
-    getSeller,
-    getUserSeller,
-    itemSold,
-  };
->>>>>>> 88f94afc0e3495ddc3c84ff2165635fe0ef8da79
 };
 
 module.exports = helpers;
