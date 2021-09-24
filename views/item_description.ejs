@@ -47,25 +47,6 @@ function mmData(o) { mmDataLayer.push(o); }
 
 
 
-<<<<<<< HEAD
-<!----------- main container for item image and item description ------------>
-<div id="item-1-container">
-
-
-      <% for(let item of items) { %>
-        <%= console.log(">>>>>>>>>>>>item in item_description : ", item) %>
-            <td><%= item.title %></td>
-            <img src="<%= item.thumbnail_photo_url %>" >
-            <td><%= item.price%></td>
-            <td><%= item.description %></td>
-
-            <% if(item.sold) { %>
-              <td>
-                <span class="badge rounded-pill bg-dark">SOLD!</span>
-                </td>
-                <% } %>
-                <% } %>
-=======
     <!----------- main container for item image and item description ------------>
     <div class="container">
 
@@ -91,7 +72,6 @@ function mmData(o) { mmDataLayer.push(o); }
         <hr class="item-description-hr">
             <% } %>
 </div>
->>>>>>> 88f94afc0e3495ddc3c84ff2165635fe0ef8da79
 
 
       <div class="item-image">
