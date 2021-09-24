@@ -130,14 +130,17 @@ const helpers = function (db) {
       });
   };
 
-  const addFavourites = function (user_id, item) {
+  const addFavourites = function (user_id, item_id) {
     const queryString = `
     INSERT INTO favourite_items (items_id, user_id)
     VALUES ($1, $2)
     RETURNING *;
     `;
 
-    const values = [favourite_items.items_id, favourite_items.user_id];
+    const values = [
+      item_id,
+      user_id
+      ]
 
     return db
       .query(queryString, values)

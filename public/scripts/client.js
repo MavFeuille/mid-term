@@ -40,10 +40,9 @@ $(document).ready(function () {
     );
   });
 
+  
   const deleteButton = $(".delete-form");
   console.log("Delete button:", deleteButton);
-
-
   $(".delete-form").on("click", function (event) {
     const itemID = $(event.target).data("item")
     console.log("clicked!!!!!!!!!!");

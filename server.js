@@ -225,7 +225,7 @@ app.post("/favourites", (req, res) => {
   const item_id = req.body.item_id
   const templateVars = {};
   // console.log('value of the heart++++++req.session',req.session)
-  // console.log('.......user_id, item_id',user_id, item_id)
+  console.log('.......user_id, item_id',user_id, item_id)
   databaseHelpers.addFavourites(user_id, item_id).then((result) => {
     console.log("result: ", result);
    return res.json({ items: result });
