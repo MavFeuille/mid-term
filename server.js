@@ -123,9 +123,9 @@ app.post("/login", (req, res) => {
 app.post("/logout", (req,res) => {
   //
   // req.session.user_id = user.id;
-  req.session["user_id"] = null;
+  req.session = null;
   // console.log("*********req.session[user_id]********:" , req.session["user_id"]);
-  res.redirect("/");
+  return res.redirect("/home");
 
 });
 
