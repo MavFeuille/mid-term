@@ -6,11 +6,20 @@
   width: 100%;
   height: 25em;
 }
+h2 {
+  font-family: "Raleway Medium Italic";
+}
 .favourites {
   h2 {
     font-size: 2em;
     text-align: center;
     margin: 1.5em 0 1.5em 0;
+    color: black;
+    font-family: "Raleway Medium Italic";
+  }
+  span {
+    color: #ca1cbf;
+    font-family: "Raleway Medium Italic";
   }
 }
 .carousel {
@@ -25,6 +34,10 @@
   background: #ffffff;
   border-radius: 5px;
   counter-increment: carousel-cell;
+  p {
+    color: #ca1cbf;
+    font-family: "Raleway Medium";
+  }
 }
 
 .carousel-cell:before {

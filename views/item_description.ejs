@@ -47,6 +47,7 @@ function mmData(o) { mmDataLayer.push(o); }
 
 
 
+<<<<<<< HEAD
 <!----------- main container for item image and item description ------------>
 <div id="item-1-container">
 
@@ -64,6 +65,33 @@ function mmData(o) { mmDataLayer.push(o); }
                 </td>
                 <% } %>
                 <% } %>
+=======
+    <!----------- main container for item image and item description ------------>
+    <div class="container">
+
+
+      <% for(let item of items) { %>
+
+          <div class="outer-description-container">
+            <div class="inner-item">
+              <a href="/item_description/<%=item.id%>">
+                <img src="<%=item.thumbnail_photo_url %>" class="img-thumbnail-description" alt="...">
+              </a>
+
+          <div class="inner-item-description">
+            <div class="item-description-title">
+              <a href="/item_description/<%=item.id%>">
+              <p class="description-title"><%= item.title %></p>
+            </a>
+            </div>
+            <div class="item-price">$<%= item.price%></div>
+            <div class="item-description"> <%= item.description %></div>
+          </div>
+        </div>
+        <hr class="item-description-hr">
+            <% } %>
+</div>
+>>>>>>> 88f94afc0e3495ddc3c84ff2165635fe0ef8da79
 
 
       <div class="item-image">
