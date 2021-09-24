@@ -211,9 +211,9 @@ const helpers = function (db) {
       .query(queryString, values)
       .then((result) => {
         console.log("-------> new item on its way ------> ", result);
-        return result.rows[0];
+        return result.rows;
       })
-      .catch((err) => console.log(err.message))
+      .catch((err) => console.log(err.message, "hmmmm....didn't function like it was supposed to."))
 
     };
 
