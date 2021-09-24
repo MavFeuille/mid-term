@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Home Page</title>
+    <title>Favourites</title>
     <link
       rel="stylesheet"
       href="https://unpkg.com/flickity@2/dist/flickity.min.css"
@@ -38,37 +38,37 @@
 window.mmDataLayer = window.mmDataLayer || [];
 function mmData(o) { mmDataLayer.push(o); }
 </script>
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+      <script src="../public/scripts/flickity.js"></script>
 
   </head>
+  <header><%- include('_header') %></header>
 
+    <!----------- main container for item ------------>
   <body>
-    <header><%- include('_header') %></header>
-
     <section class="homepage">
       <div class="banner">
-
       </div>
     </section>
     <section class="favourites">
       <h2>My <span class="fav-text">Favourites</span></h2>
       <div class="carousel" data-flickity='{ "wrapAround": true }'>
         <% for(let item of items) { %>
-
         <div class="carousel-cell">
-
           <img class="fav-image" src="<%= item.thumbnail_photo_url %>" />
           <p><%= item.title %></p>
           <p><%= item.price%></p>
         </div>
         <% } %>
-
-
         </div>
       </div>
     </section>
+
+
+    <!-- --------all footer code below--------- -->
     <footer>
       <div class="footer-basic">
-        <footer>
+
           <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i
                 class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a
               href="#"><i class="icon ion-social-facebook"></i></a></div>
@@ -79,11 +79,9 @@ function mmData(o) { mmDataLayer.push(o); }
             <li class="list-inline-item"><a href="#">Terms</a></li>
             <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
           </ul>
-          <p class="copyright">Company Name © 2018</p>
-        </footer>
+          <p class="copyright">Periodt © 2021</p>
+
       </div>
-    </footer>
-    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-    <script src="../public/scripts/flickity.js"></script>
-  </body>
+    </body>
+  </footer>
 </html>

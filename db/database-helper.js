@@ -221,5 +221,3 @@ const helpers = function (db) {
 };
 
 module.exports = helpers;
-
-//is line 29 the correct syntax to return new functions added into the helper function?

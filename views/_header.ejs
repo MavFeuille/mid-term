@@ -15,6 +15,7 @@
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
 
+       <!--------- Form for login    -------->
       <form class="form-inline" action="/login" method="POST">
         <div class="form-group mb-2">
           <label for="email">Email address</label>
@@ -28,16 +29,15 @@
 
       </form>
 
+
       <div class="offcanvas-body">
         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/home/">Home</a>
           </li>
           <li class="nav-item">
-            <!-- <a class="nav-link" href="#">Login</a> -->
           </li>
-
-
+          <!-------- Toggle form to see menu list ----------->
 
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button"
@@ -45,8 +45,6 @@
               Menu
             </a>
             <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
-
-
               <li><a class="dropdown-item" href="/admin">Admin page</a></li>
               <li>
                 <hr class="dropdown-divider">
@@ -58,7 +56,6 @@
             <form class="form-inline" action="/logout" method="POST">
               <button type="submit" class="btn btn-primary">Logout</button>
             </form>
-
           </li>
         </ul>
 
@@ -76,11 +73,11 @@
                   From</label>
               <input type="text" name="minPrice" id="minPrice" value="" data-type="price"  placeholder="minimum price">
           </div>
-          <div class="input-break"> - </div>
+          <div class="input-break"> To </div>
           <div>
               <label for="maxPrice">
-                  <span class="sr-only"Price</span>
-                  To</label>
+                  <span class="sr-only"Price></span>
+                  </label>
               <input type="text" name="maxPrice" id="maxPrice" value="" data-type="price"  placeholder="maximum price">
           </div>
           <button type="submit" class="button-task" data-event="PriceSelected">
@@ -93,3 +90,4 @@
 </nav>
 
 </header>
+

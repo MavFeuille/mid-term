@@ -12,6 +12,11 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
   <title>Our Site</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+
+
+  <!-----------External JS------------->
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
@@ -24,6 +29,10 @@
 window.mmDataLayer = window.mmDataLayer || [];
 function mmData(o) { mmDataLayer.push(o); }
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+
+
 </head>
 <header>
   <%- include('_header') %>
@@ -49,7 +58,7 @@ function mmData(o) { mmDataLayer.push(o); }
 
 
 
-  <!----------- main container for item image and item description ------------>
+  <!----------- main container for item ------------>
   <% if (user_id) { %>
 
     <div class="container">
@@ -70,27 +79,21 @@ function mmData(o) { mmDataLayer.push(o); }
 
               <div class="item-buttons">
               <button type="click" class="btn btn-danger favourites-form"  data-item="<%= item.id%>"> favourite </button>
-
               </div>
             </div>
             </div>
           <% } %>
           <% } %>
         </div>
-
 </body>
 
 <!-- --------all footer code below--------- -->
 <footer>
-  <!DOCTYPE html>
-  <html>
-
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Untitled</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+
 
   </head>
 
@@ -107,10 +110,9 @@ function mmData(o) { mmDataLayer.push(o); }
           <li class="list-inline-item"><a href="#">Terms</a></li>
           <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
         </ul>
-        <p class="copyright">Company Name © 2018</p>
-      </footer>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
-  </body>
+        <p class="copyright">Periodt © 2021</p>
+      </div>
+    </body>
   </table>
+</footer>
+</html>
