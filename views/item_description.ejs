@@ -47,28 +47,27 @@
 
 
       <% for(let item of items) { %>
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
 
+          <div class="outer-description-container">
+            <div class="inner-item">
+              <a href="/item_description/<%=item.id%>">
+                <img src="<%=item.thumbnail_photo_url %>" class="img-thumbnail-description" alt="...">
+              </a>
 
-
-
-        <div class="col">
-          <div class="item-title">
-            <%= item.title %>
+          <div class="inner-item-description">
+            <div class="item-description-title">
+              <a href="/item_description/<%=item.id%>">
+              <p class="description-title"><%= item.title %></p>
+            </a>
+            </div>
+            <div class="item-price">$<%= item.price%></div>
+            <div class="item-description"> <%= item.description %></div>
           </div>
-          <a href="/item_description/<%=item.id%>">
-          <img src="<%=item.thumbnail_photo_url %>" class="img-thumbnail" alt="...">
-        </a>
+        </div>
+        <hr class="item-description-hr">
+            <% } %>
+</div>
 
-        <div class="item-price">$<%= item.price%></div>
-           <div class="item-description"></div> <%= item.description %>
-        <% } %>
-      </div>
-        <!-- <td>
-          <form method="POST" action="/items_description//delete">
-            <button type="submit" class="btn btn-dark">Delete (ಥ﹏ಥ)</button>
-          </form>
-        </td> -->
 
       <div class="item-image">
         <i class="bi bi-suit-heart"></i>

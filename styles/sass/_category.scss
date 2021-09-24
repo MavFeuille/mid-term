@@ -29,3 +29,33 @@
   width: 25em;
   margin-right: 3em;
 }
+.outer-description-container {
+  display: flex;
+  flex-direction: column;
+  padding-top: 1em;
+}
+
+.item-description {
+  width: 30em;
+  padding-left: 0;
+}
+.img-thumbnail-description {
+  width: 15em;
+  height: 20em !important;
+  margin-right: 1.5em;
+}
+.inner-item {
+  display: flex;
+  width: 10em;
+}
+.description-title {
+  color: #ee723d;
+  font-size: 18px;
+}
+.description-title:hover {
+  color: #4b4c4d;
+  text-decoration: none;
+}
+.item-description-hr {
+  width: 50em;
+}

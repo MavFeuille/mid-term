@@ -60,7 +60,9 @@
                 <img src="<%=item.thumbnail_photo_url %>" class="img-thumbnail" alt="...">
               </a>
               <div class="item-title">
-                <%= item.title %>
+                <a href="/item_description/<%=item.id%>">
+               <%= item.title %>
+              </a>
               </div>
               <div class="item-price">$<%= item.price%></div>
 
