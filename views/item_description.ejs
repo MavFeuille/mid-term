@@ -48,21 +48,31 @@ function mmData(o) { mmDataLayer.push(o); }
 
 
     <!----------- main container for item image and item description ------------>
-    <div id="item-1-container">
+    <div class="container">
 
 
       <% for(let item of items) { %>
-<
-            <td><%= item.title %></td>
-            <img src="<%= item.thumbnail_photo_url %>" >
-            <td><%= item.price%></td>
-            <td><%= item.description %></td>
-        <% } %>
-        <!-- <td>
-          <form method="POST" action="/items_description//delete">
-            <button type="submit" class="btn btn-dark">Delete (ಥ﹏ಥ)</button>
-          </form>
-        </td> -->
+
+          <div class="outer-description-container">
+            <div class="inner-item">
+              <a href="/item_description/<%=item.id%>">
+                <img src="<%=item.thumbnail_photo_url %>" class="img-thumbnail-description" alt="...">
+              </a>
+
+          <div class="inner-item-description">
+            <div class="item-description-title">
+              <a href="/item_description/<%=item.id%>">
+              <p class="description-title"><%= item.title %></p>
+            </a>
+            </div>
+            <div class="item-price">$<%= item.price%></div>
+            <div class="item-description"> <%= item.description %></div>
+          </div>
+        </div>
+        <hr class="item-description-hr">
+            <% } %>
+</div>
+
 
       <div class="item-image">
         <i class="bi bi-suit-heart"></i>
