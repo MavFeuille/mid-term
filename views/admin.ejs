@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Item Description</title>
+  <title>Admin Page</title>
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
@@ -19,6 +19,7 @@
     crossorigin="anonymous"></script>
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
+  <script type="text/javascript" src="/scripts/client.js"></script>
 
 </head>
 <header>
@@ -43,21 +44,30 @@
 
 
     <!----------- main container for item image and item description ------------>
+    <p> THIS IS ADMIN PAGE!!!</p>
     <div class="main-item-container">
 
-
       <% for(let item of items) { %>
-
+      <div id="item-<%= item.id%>-container">
+      <% if (user) { %>
             <td><%= item.title %></td>
             <img src="<%= item.thumbnail_photo_url %>" >
             <td><%= item.price%></td>
             <td><%= item.description %></td>
+
         <% } %>
-        <!-- <td>
-          <form method="POST" action="/items_description//delete">
-            <button type="submit" class="btn btn-dark">Delete (ಥ﹏ಥ)</button>
-          </form>
-        </td> -->
+
+        <td>
+
+            <button class="btn btn-dark delete-form" data-item="<%= item.id%>">Delete (ಥ﹏ಥ)</button>
+
+        </td>
+
+        <td>
+          <!-- <form method="POST" action="/admin/sold"> -->
+            <button type="click" class="btn btn-warning sold-form" data-item="<%= item.id%>">SOLD!</button>
+          <!-- </form> -->
+        </td>
 
       <div class="item-image">
         <i class="bi bi-suit-heart"></i>
@@ -66,12 +76,13 @@
         </svg>
 
       </div>
-      <div>
-   </div>
-    </div>
-  </body>
 
-  <!-- --------all footer code below--------- -->
+    </div>
+   <% } %>
+  </div>
+</body>
+
+<!-- --------all footer code below--------- -->
 <footer>
   <!DOCTYPE html>
   <html>
@@ -103,6 +114,10 @@
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+    <script async="async" src="https://static.mobilemonkey.com/js/mm_db21a7b5-bd4f-4075-880e-330b226992eb-34134246.js"></script>
+    <script>
+    window.mmDataLayer = window.mmDataLayer || [];
+    function mmData(o) { mmDataLayer.push(o); }
+    </script>
   </body>
-</table>
-
+  </table>

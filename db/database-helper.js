@@ -23,11 +23,46 @@ const helpers = function (db) {
       });
   };
 
+  // Functions to verify if user is a seller
+  const getSeller = function (seller_id) {
+    return db
+      .query(`SELECT * FROM items WHERE seller_id = $1;`, [seller_id])
+      .then((result) => {
+        return result.rows;
+      })
+      .catch((err) => {
+        console.log("error!", err.message);
+      });
+  };
+
+  const getUserSeller = function (user_id) {
+    return (
+      db
+        //  .query(`SELECT * FROM items WHERE seller_id is NOT NULL AND user_id = $1;`, [user_id])
+        .query(
+          `
+        SELECT *
+        FROM users
+        JOIN items ON items.seller_id = users.id WHERE users.id = $1 AND seller_id is NOT NULL;`,
+          [user_id]
+        )
+        .then((result) => {
+          return result.rows;
+        })
+        .catch((err) => {
+          console.log("error!", err.message);
+        })
+    );
+  };
+
   const getUserByEmail = function (email) {
     return db
       .query(`SELECT * FROM users WHERE email = $1;`, [email])
       .then((result) => {
         return result.rows[0];
+      })
+      .catch((err) => {
+        console.log("error!", err.message);
       })
       .catch((err) => {
         console.log("error!", err.message);
@@ -137,6 +172,38 @@ const helpers = function (db) {
     //   ];
   };
 
+  const itemSold = function (item_id) {
+    // SELECT * FROM items WHERE buyer_id IS NOT NULL;
+    const queryString = `
+    UPDATE items
+    SET sold = true
+    WHERE items.id = $1
+    `;
+    const values = [item_id];
+    return db
+      .query(queryString, values)
+      .then((result) => {
+        console.log("Result.rows: ", result.rows[0]);
+        return result.rows[0];
+      })
+      .catch((err) => console.log(err.message));
+  };
+
+  //returns undefined items.id and {}
+  const removeItem = function (item_id) {
+    const queryString = `
+    DELETE FROM items WHERE items.id = $1;`;
+    // const values =
+
+    return db
+      .query(queryString, [item_id])
+      .then((result) => {
+        console.log("------> GOOD TO GO!!!!!");
+        // return result.rows[0];
+      })
+      .catch((err) => console.log(err.message));
+  };
+
   return {
     getItems,
     getFavourites,
@@ -146,6 +213,10 @@ const helpers = function (db) {
     getUser,
     getUserByEmail,
     addFavourites,
+    removeItem,
+    getSeller,
+    getUserSeller,
+    itemSold,
   };
 };
 
