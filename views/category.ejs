@@ -47,23 +47,6 @@
 
   <!----------- main container for item image and item description ------------>
   <% if (user_id) { %>
-<<<<<<< HEAD
-  <div class="main-container">
-    <% for(let item of items) { %>
-      <%= console.log("item.title: ", Object.values(item.title)) %>
-          <%= console.log(" item cover photo: ", item.cover_photo_url)%>
-          <td><%= item.title %></td>
-        <a href="/item_description/<%=item.id%>">
-        <img src=" <%=item.thumbnail_photo_url %>" class="img-thumbnail" alt="..." method="GET" action=" item_description/<%=item.id%>">
-        </a>
-
-          <td>$<%= item.price%></td>
-        <td>
-            <button type="click" class="btn btn-danger favourites-form"  data-item="<%= item.id%>"> favourite </button>
-
-            <div>
-              <!------ Check if user === seller to have a permission to DELETE items-->
-=======
 
 
 
@@ -85,25 +68,12 @@
 
               <div class="item-buttons">
               <button type="click" class="btn btn-danger favourites-form"  data-item="<%= item.id%>"> favourite </button>
->>>>>>> 88f94afc0e3495ddc3c84ff2165635fe0ef8da79
               <% if (user_id === item.seller_id) { %>
                 <button type="click" class="btn btn-dark delete-form"  data-item="<%= item.id%>">Delete</button>
               <%}%>
               </div>
-<<<<<<< HEAD
-            </td>
-
-            <!--------- To  mark item SOLD ----------->
-            <% if(item.sold) { %>
-              <td>
-                <span class="badge rounded-pill bg-dark">SOLD!</span>
-                </td>
-            <% } %>
-
-=======
             </div>
             </div>
->>>>>>> 88f94afc0e3495ddc3c84ff2165635fe0ef8da79
           <% } %>
           <% } %>
         </div>
