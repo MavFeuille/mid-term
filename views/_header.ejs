@@ -19,6 +19,7 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/home/">Home</a>
           </li>
+      <% if (user) { %>
           <li class="nav-item">
             <!-- <a class="nav-link" href="#">Login</a> -->
           </li>
@@ -42,7 +43,9 @@
             </ul>
           </li>
         </ul>
-        <li>
+        <button type="submit" class="btn btn-primary" href="/logged_in">Logout</button>
+      <% } else { %>
+        <!-- <li> -->
         <form class="form-inline" action="/login" method="POST">
           <div class="form-group mb-2">
             <label for="email">Email address</label>
@@ -53,9 +56,9 @@
             <input class="form-control" type="password" name="password" placeholder="Enter password" style="width: 300px; margin: 1em">
             <button type="submit" class="btn btn-primary" href="/logged_in">Login</button>
           </div>
-        </li>
+        <!-- </li> -->
         </form>
-
+      <% } %>
         <!-- make a logout rout button  -->
 
         <!-------Filter in the nav bar ------->
