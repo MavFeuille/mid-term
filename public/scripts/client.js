@@ -1,9 +1,9 @@
 //users browser
 $(document).ready(function () {
-  if (sessionStorage.getItem("isCliked")) {
-    $("btn btn-secondary favourites-form").addClass("btn-success");
-    $("btn btn-secondary favourites-form").removeClass("btn-default");
-  }
+  // if (sessionStorage.getItem("isCliked")) {
+  //   $("btn btn-secondary favourites-form").addClass("btn-success");
+  //   $("btn btn-secondary favourites-form").removeClass("btn-default");
+  // }
   $(".favourites-form").on("click", function (event) {
     //stops from loading new page route
     event.preventDefault();
@@ -58,4 +58,47 @@ $(document).ready(function () {
         $(`#item-${itemID}-container`).remove();
       });
   });
+
+  $(".post-form").on("click", function (event) {
+    //stops from loading new page route
+    event.preventDefault();
+    $.post(`/new_item`, { item_id: $(event.target).data("item") }).then(
+      (result) => {
+        // $(event.target).data("item").addClass('clicked');
+        //   $(".btn btn-danger favourites-form").css("color", "grey")
+        //   })
+        console.log("Add new item REsult: ", result);
+        $(event.target).addClass("btn-success");
+        $(this).removeClass("btn-primary");
+        // set the value upon clicking
+        sessionStorage.setItem("isCliked", true);
+      }
+    );
+  });
+
+  // $("#new-item").on("submit", function (event) {
+  //   //stops from loading new page route
+  //   event.preventDefault();
+  //   console.log("-----> TRIGGERED!!!!!!!!!<------")
+  //   $.post(`/new_item`, { item_id: $(event.target).data("item") }).then(
+  //       (result) => {
+  //       // const data = $(this).serialize();
+  //       submitProperty(data)
+  //       .then(() => {
+  //         views_manager.show('listings');
+  //       })
+  //       .catch((error) => {
+  //         console.error(error);
+  //         views_manager.show('listings');
+  //       })
+  //       // console.log("Add new item REsult: ", result);
+  //       // $(event.target).addClass("btn-success");
+  //       // $(this).removeClass("btn-primary");
+  //       // // set the value upon clicking
+  //       // sessionStorage.setItem("isCliked", true);
+  //     }
+  //   );
+  // });
+
+
 });

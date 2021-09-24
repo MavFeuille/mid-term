@@ -286,6 +286,33 @@ app.post("/item/delete", (req, res) => {
 //   // }
 // }
 
+//GET new items
+app.get("/new_item", (req, res) => {
+
+     res.render("new_item");
+
+});
+
+//GET new items
+app.post("/new_item", (req, res) => {
+
+  const tmpPassword = bcryptjs.hashSync('123');
+  // const seller_id = req.params.seller_id;
+  const user_id = req.session.user_id;
+  const item = req.body;
+  const newItem = user_id && item;
+
+  console.log()
+
+
+  console.log("++++++++", req.body)
+   databaseHelpers.postItem(newItem).then((result) => {
+    console.log("========item_id:", user_id);
+    console.log("result: ", result);
+    res.render("new_item", { items: result });
+  });
+  res.redirect("/admin");
+});
 
 
 // ____________PORT______________

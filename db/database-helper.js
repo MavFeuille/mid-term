@@ -182,10 +182,43 @@ const helpers = function (db) {
       .catch((err) => console.log(err.message))
   };
 
+  // ADD new item
+  const postItem = function(newItem) {
+// ('Ruched Sweetheart Neck Velvet Bodycon Dress', 26.00, 'xoxo green velvet body dress'
+//  'https://img.ltwebstatic.com/images3_pi/2020/11/20/16058551232dc741f0c163e3f8015a95bfe50edafa.webp', 'https://img.ltwebstatic.com/images3_pi/2020/11/20/16058551232dc741f0c163e3f8015a95bfe50edafa_thumbnail_600x.webp',3 , 1, false, 1);
+
+    const queryString = `
+    INSERT INTO items (
+      title, price, description, cover_photo_url, thumbnail_photo_url, category, user_id, sold, seller_id)
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+      RETURNING *;
+    `;
+
+    const values = [
+      newItem.title,
+      newItem.price,
+      newItem.description,
+      newItem.cover_photo_url,
+      newItem.thumbnail_photo_url,
+      newItem.category,
+      newItem.user_id,
+      newItem.sold,
+      newItem.seller_id
+    ];
 
 
+    return db
+      .query(queryString, values)
+      .then((result) => {
+        console.log("-------> new item on its way ------> ", result);
+        return result.rows[0];
+      })
+      .catch((err) => console.log(err.message))
 
-return {getItems, getFavourites, getItem, getCategory, getItemsByPrice, getUser, getUserByEmail, addFavourites, removeItem, getSeller, getUserSeller, itemSold };
+    };
+
+
+return {getItems, getFavourites, getItem, getCategory, getItemsByPrice, getUser, getUserByEmail, addFavourites, removeItem, getSeller, getUserSeller, itemSold, postItem };
 };
 
 
