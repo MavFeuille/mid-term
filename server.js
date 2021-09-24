@@ -72,47 +72,63 @@ app.get("/", (req, res) => {
 });
 
 
-app.get("/login", (req, res) => {
+app.get("/_header", (req, res) => {
 
-  const user = users[req.session["userID"]];
-  const templateVars = { user, urls: urlDatabase };
+  const user = req.session
+  // const templateVars = { user, urls: urlDatabase };
 
-  res.render("urls_login", templateVars);
+  res.render("/home", {user});
 });
-
 
 app.post("/login", (req, res) => {
   const tmpPassword = bcryptjs.hashSync('123')
-//  console.log(">>>>>>>>", tmpPassword)
+  //  console.log(">>>>>>>>", tmpPassword)
   const email = req.body.email;
   const password = req.body.password;
   const templateVars = {};
 
-  if (!email || !password) {
-   templateVars.error = 'email and password cannot be empty'
-   return res.render("index", templateVars);
-  }
 
- databaseHelpers.getUserByEmail(email).then((user) => {
-  // console.log(">>>>>>>>>>result: ", user);
-  if (!user) {
-    console.log("user not found.........")
-    templateVars.error = 'No account plz register'
+  if (!email || !password) {
+    templateVars.error = 'email and password cannot be empty'
     return res.render("index", templateVars);
   }
-  //compares both inputed passwords
-  const checkPassword = bcryptjs.compareSync(password, user.password);
-  if (!checkPassword){
-    // console.log("wrong password .........")
-    templateVars.error = 'Wrong password'
-    return res.render("index", templateVars)
-  }
-  req.session.user_id = user.id;
-  // console.log("++++++++", req.session.user_id)
-  templateVars.user = user;
-  res.render("index", templateVars);
+
+  databaseHelpers.getUserByEmail(email).then((user) => {
+    // console.log(">>>>>>>>>>result: ", user);
+    if (!user) {
+      console.log("user not found.........")
+      templateVars.error = 'No account plz register'
+      return res.render("index", templateVars);
+    }
+    //compares both inputed passwords
+    const checkPassword = bcryptjs.compareSync(password, user.password);
+    if (!checkPassword){
+      // console.log("wrong password .........")
+      templateVars.error = 'Wrong password'
+      return res.render("index", templateVars)
+    }
+    req.session.user_id = user.id;
+    // const user = users[req.session["userID"]];
+    console.log("++++++++", req.session.user_id)
+    templateVars.user = user;
+    console.log("+++++++++++++++++user+++++++++++++>>>", user);
+    res.render("index", user);
   });
 });
+
+
+
+
+// POST /logout
+app.post("/logout", (req,res) => {
+  //
+  // req.session.user_id = user.id;
+  req.session["user_id"] = null;
+  // console.log("*********req.session[user_id]********:" , req.session["user_id"]);
+  res.redirect("/");
+
+});
+
 
 
 app.get("/home", (req, res) => {
