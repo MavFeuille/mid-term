@@ -43,16 +43,27 @@
 
 
     <!----------- main container for item image and item description ------------>
-    <div class="main-item-container">
+    <div class="container">
 
 
       <% for(let item of items) { %>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
 
-            <td><%= item.title %></td>
-            <img src="<%= item.thumbnail_photo_url %>" >
-            <td><%= item.price%></td>
-            <td><%= item.description %></td>
+
+
+
+        <div class="col">
+          <div class="item-title">
+            <%= item.title %>
+          </div>
+          <a href="/item_description/<%=item.id%>">
+          <img src="<%=item.thumbnail_photo_url %>" class="img-thumbnail" alt="...">
+        </a>
+
+        <div class="item-price">$<%= item.price%></div>
+           <div class="item-description"></div> <%= item.description %>
         <% } %>
+      </div>
         <!-- <td>
           <form method="POST" action="/items_description//delete">
             <button type="submit" class="btn btn-dark">Delete (ಥ﹏ಥ)</button>

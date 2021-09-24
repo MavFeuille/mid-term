@@ -2,3 +2,30 @@
   padding-left: 10em;
   padding-right: 10em;
 }
+
+.item-title {
+  width: 10em;
+  height: 4.9em;
+  overflow: hidden;
+}
+.item-buttons {
+  display: flex;
+  gap: 1.5em;
+}
+
+.item-price {
+  margin: 0.8em 0;
+  font-weight: bold;
+}
+
+.img-thumbnail {
+  width: 15em;
+  height: 15em !important;
+}
+.container {
+  display: flex;
+}
+.col {
+  width: 25em;
+  margin-right: 3em;
+}
