@@ -24,13 +24,14 @@
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
   <script type="text/javascript" src="/scripts/client.js"></script>
-  <script async="async" src="https://static.mobilemonkey.com/js/mm_db21a7b5-bd4f-4075-880e-330b226992eb-34134246.js"></script>
-<script>
-window.mmDataLayer = window.mmDataLayer || [];
-function mmData(o) { mmDataLayer.push(o); }
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+  <script async="async"
+    src="https://static.mobilemonkey.com/js/mm_db21a7b5-bd4f-4075-880e-330b226992eb-34134246.js"></script>
+  <script>
+    window.mmDataLayer = window.mmDataLayer || [];
+    function mmData(o) { mmDataLayer.push(o); }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
 
 
 </head>
@@ -63,32 +64,34 @@ function mmData(o) { mmDataLayer.push(o); }
 
     <div class="container">
 
-        <% for(let item of items) { %>
+      <% for(let item of items) { %>
 
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
-              <div class="col">
-                <a href="/item_description/<%=item.id%>">
-                <img src="<%=item.thumbnail_photo_url %>" class="img-thumbnail" alt="...">
-              </a>
-              <div class="item-title">
-                <a href="/item_description/<%=item.id%>">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+          <div class="col">
+            <a href="/item_description/<%=item.id%>">
+              <img src="<%=item.thumbnail_photo_url %>" class="img-thumbnail" alt="...">
+            </a>
+            <div class="item-title">
+              <a href="/item_description/<%=item.id%>">
                 <%= item.title %>
-                </a>
-              </div>
-              <div class="item-price">$<%= item.price%></div>
+              </a>
+            </div>
+            <div class="item-price">$<%= item.price%>
+            </div>
 
-              <div class="item-buttons">
-              <button type="click" class="btn btn-danger favourites-form"  data-item="<%= item.id%>"> favourite </button>
-              </div>
+            <div class="item-buttons">
+              <button type="click" class="btn btn-danger favourites-form" data-item="<%= item.id%>"> favourite </button>
             </div>
-            </div>
-          <% } %>
-          <% } %>
+          </div>
         </div>
+        <% } %>
+          <% } %>
+    </div>
 </body>
 
 <!-- --------all footer code below--------- -->
 <footer>
+
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -111,8 +114,9 @@ function mmData(o) { mmDataLayer.push(o); }
           <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
         </ul>
         <p class="copyright">Periodt © 2021</p>
-      </div>
-    </body>
+    </div>
+  </body>
   </table>
 </footer>
+
 </html>

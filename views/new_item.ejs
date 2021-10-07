@@ -30,83 +30,90 @@
 </header>
 
 <body>
-<!-- ----------top banner poster for the item page ------------->
-<div class="w3-content">
-  <img class="item-description-banner" src="https://ohnatural.co.nz/wp-content/uploads/2019/06/Skincare-banner-1600x779-for-blog.jpg" alt="custom_html_banner1">
- </div>
-
-<!-- ---------- breadcrumb directory under banner ------------->
-<nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="#">Home</a></li>
-    <li class="breadcrumb-item"><a href="category.ejs">Category</a></li>
-    <li class="breadcrumb-item active" aria-current="Item">Item</li>
-  </ol>
-</nav>
-
-<!------------ Form for create new item ----------------->
-<form action="new_item" method="post" id="new-item" class="new-item-form">
-  <div class="new-item-form__field-wrapper">
-    <label for="new-item__title">Title</label>
-    <input type="text" name="title" placeholder="Title" id="new-item-form__title">
+  <!-- ----------top banner poster for the item page ------------->
+  <div class="w3-content">
+    <img class="item-description-banner"
+      src="https://ohnatural.co.nz/wp-content/uploads/2019/06/Skincare-banner-1600x779-for-blog.jpg"
+      alt="custom_html_banner1">
   </div>
 
-  <div class="new-item-form__field-wrapper">
-    <label for="new-item-form__description">Description</label>
-    <textarea placeholder="Description" name="description" id="item-form__description" cols="30" rows="10"></textarea>
-  </div>
+  <!-- ---------- breadcrumb directory under banner ------------->
+  <nav
+    style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);"
+    aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#">Home</a></li>
+      <li class="breadcrumb-item"><a href="category.ejs">Category</a></li>
+      <li class="breadcrumb-item active" aria-current="Item">Item</li>
+    </ol>
+  </nav>
 
-  <div class="new-item-form__field-wrapper">
-    <label for="new-item-form__price">Price</label>
-    <input placeholder="price" type="number" name="price" id="new-item-form__cost">
-  </div>
+  <!------------ Form for create new item ----------------->
+  <form action="new_item" method="post" id="new-item" class="new-item-form">
+    <div class="new-item-form__field-wrapper">
+      <label for="new-item__title">Title</label>
+      <input type="text" name="title" placeholder="Title" id="new-item-form__title">
+    </div>
 
-  <div class="new-item-form__field-wrapper">
-    <label for="new-item-form__category">Category</label>
-    <p>Input "1" for luxurious brand</p>
-    <p>Input "2" for drugstore brand</p>
-    <p>Input "3" for clothings</p>
-    <input placeholder="category" type="text" name="category" id="new-item-form__category">
-  </div>
+    <div class="new-item-form__field-wrapper">
+      <label for="new-item-form__description">Description</label>
+      <textarea placeholder="Description" name="description" id="item-form__description" cols="30" rows="10"></textarea>
+    </div>
 
-  <div class="new-item-form__field-wrapper">
-    <label for="new-item-form__thumbnail">Thumbnail Image</label>
-    <input placeholder="Thumbnail Image" type="text" name="thumbnail_photo_url" id="new-item-form__thumbnail">
-  </div>
+    <div class="new-item-form__field-wrapper">
+      <label for="new-item-form__price">Price</label>
+      <input placeholder="price" type="number" name="price" id="new-item-form__cost">
+    </div>
 
-  <div class="new-item-form__field-wrapper">
-    <label for="new-item-form__cover">Cover Image</label>
-    <input placeholder="Cover Image" type="text" name="cover_photo_url" id="new-item-form__cover">
-  </div>
-<!--
+    <div class="new-item-form__field-wrapper">
+      <label for="new-item-form__category">Category</label>
+      <p>Input "1" for luxurious brand</p>
+      <p>Input "2" for drugstore brand</p>
+      <p>Input "3" for clothings</p>
+      <input placeholder="category" type="text" name="category" id="new-item-form__category">
+    </div>
+
+    <div class="new-item-form__field-wrapper">
+      <label for="new-item-form__thumbnail">Thumbnail Image</label>
+      <input placeholder="Thumbnail Image" type="text" name="thumbnail_photo_url" id="new-item-form__thumbnail">
+    </div>
+
+    <div class="new-item-form__field-wrapper">
+      <label for="new-item-form__cover">Cover Image</label>
+      <input placeholder="Cover Image" type="text" name="cover_photo_url" id="new-item-form__cover">
+    </div>
+    <!--
 
  <!-- --------all footer code below--------- -->
- <footer>
+    <footer>
 
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Untitled</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-  </head>
-  <body>
-    <div class="footer-basic">
-        <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i
-              class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a
-            href="#"><i class="icon ion-social-facebook"></i></a></div>
-        <ul class="list-inline">
-          <li class="list-inline-item"><a href="#">Home</a></li>
-          <li class="list-inline-item"><a href="#">Services</a></li>
-          <li class="list-inline-item"><a href="#">About</a></li>
-          <li class="list-inline-item"><a href="#">Terms</a></li>
-          <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
-        </ul>
-        <p class="copyright">Periodt © 2021</p>
-      </div>
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Untitled</title>
+        <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+      </head>
 
-    </body>
-  </table>
-</footer>
+      <body>
+        <div class="footer-basic">
+          <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i
+                class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a
+              href="#"><i class="icon ion-social-facebook"></i></a></div>
+          <ul class="list-inline">
+            <li class="list-inline-item"><a href="#">Home</a></li>
+            <li class="list-inline-item"><a href="#">Services</a></li>
+            <li class="list-inline-item"><a href="#">About</a></li>
+            <li class="list-inline-item"><a href="#">Terms</a></li>
+            <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+          </ul>
+          <p class="copyright">Periodt © 2021</p>
+        </div>
+
+      </body>
+      </table>
+    </footer>
+
 </html>
