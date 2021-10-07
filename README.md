@@ -4,7 +4,7 @@ LHL Node Skeleton
 An app where you can put different types of things up for sale. This lets buyers find the items they are looking for quickly, and easily contact sellers.
 
 ## Screenshot
-
+![buy_sell_demo](https://user-images.githubusercontent.com/87794633/136316594-47074569-96ff-4f08-885c-1816597439f5.gif)
 
 ## Getting Started
 
